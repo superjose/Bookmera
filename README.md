@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Some Notes:
+
+1. `require` is used vs `import` on styled-components, as there'd be the need to define a declaration file for each (Which is better).
+
 ## Available Scripts
 
 In the project directory, you can run:
