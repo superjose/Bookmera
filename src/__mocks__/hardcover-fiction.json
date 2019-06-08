@@ -1,0 +1,803 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2019 The New York Times Company.  All Rights Reserved.",
+    "num_results": 15,
+    "last_modified": "2019-06-05T22:38:01-04:00",
+    "results": {
+        "list_name": "Hardcover Fiction",
+        "list_name_encoded": "hardcover-fiction",
+        "bestsellers_date": "2019-06-01",
+        "published_date": "2019-06-16",
+        "published_date_description": "latest",
+        "next_published_date": "",
+        "previous_published_date": "2019-06-09",
+        "display_name": "Hardcover Fiction",
+        "normal_list_ends_at": 15,
+        "updated": "WEEKLY",
+        "books": [
+            {
+                "rank": 1,
+                "rank_last_week": 1,
+                "weeks_on_list": 39,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "0735219095",
+                "primary_isbn13": "9780735219090",
+                "publisher": "Putnam",
+                "description": "A woman who survived alone in the marsh becomes a murder suspect.",
+                "price": 0,
+                "title": "WHERE THE CRAWDADS SING",
+                "author": "Delia Owens",
+                "contributor": "by Delia Owens",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780735219090.jpg",
+                "book_image_width": 328,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Where-Crawdads-Sing-Delia-Owens/dp/0735219095?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "0735219095",
+                        "isbn13": "9780735219090"
+                    },
+                    {
+                        "isbn10": "0735219117",
+                        "isbn13": "9780735219113"
+                    },
+                    {
+                        "isbn10": "0525640371",
+                        "isbn13": "9780525640370"
+                    },
+                    {
+                        "isbn10": "0593105419",
+                        "isbn13": "9780593105412"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780735219090?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780735219090"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Where-Crawdads-Sing-Delia-Owens/dp/0735219095?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 2,
+                "rank_last_week": 0,
+                "weeks_on_list": 1,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "0062861212",
+                "primary_isbn13": "9780062861214",
+                "publisher": "Morrow",
+                "description": "A beekeeper’s quiet life is unsettled by her demanding mother, outgoing sister and neighboring widower.",
+                "price": 0,
+                "title": "QUEEN BEE",
+                "author": "Dorothea Benton Frank",
+                "contributor": "by Dorothea Benton Frank",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780062861214.jpg",
+                "book_image_width": 326,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Queen-Bee-Dorothea-Benton-Frank/dp/0062861212?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "0062861212",
+                        "isbn13": "9780062861214"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780062861214?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780062861214"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Queen-Bee-Dorothea-Benton-Frank/dp/0062861212?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 3,
+                "rank_last_week": 2,
+                "weeks_on_list": 5,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "0316420263",
+                "primary_isbn13": "9780316420266",
+                "publisher": "Little, Brown",
+                "description": "The 18th book in the Women's Murder Club series. Lindsay Boxer investigates the disappearance of three female teachers.",
+                "price": 0,
+                "title": "THE 18TH ABDUCTION",
+                "author": "James Patterson and Maxine Paetro",
+                "contributor": "by James Patterson and Maxine Paetro",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780316528443.jpg",
+                "book_image_width": 320,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/18th-Abduction-Womens-Murder-Club-ebook/dp/B07CRJ2H4L?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "0316420263",
+                        "isbn13": "9780316420266"
+                    },
+                    {
+                        "isbn10": "0316528447",
+                        "isbn13": "9780316528443"
+                    },
+                    {
+                        "isbn10": "0316454117",
+                        "isbn13": "9780316454117"
+                    },
+                    {
+                        "isbn10": "1549117297",
+                        "isbn13": "9781549117299"
+                    },
+                    {
+                        "isbn10": "1549117289",
+                        "isbn13": "9781549117282"
+                    },
+                    {
+                        "isbn10": "1549119281",
+                        "isbn13": "9781549119286"
+                    },
+                    {
+                        "isbn10": "154911929X",
+                        "isbn13": "9781549119293"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780316420266?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780316420266"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/18th-Abduction-Womens-Murder-Club-ebook/dp/B07CRJ2H4L?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 4,
+                "rank_last_week": 6,
+                "weeks_on_list": 4,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "1250110254",
+                "primary_isbn13": "9781250110251",
+                "publisher": "Flatiron",
+                "description": "Evie Milton uncovers a story going back a couple generations that may shatter a family myth.",
+                "price": 0,
+                "title": "THE GUEST BOOK",
+                "author": "Sarah Blake",
+                "contributor": "by Sarah Blake",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781250110251.jpg",
+                "book_image_width": 330,
+                "book_image_height": 493,
+                "amazon_product_url": "https://www.amazon.com/Guest-Book-Novel-Sarah-Blake/dp/1250110254?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "1250110254",
+                        "isbn13": "9781250110251"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781250110251?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781250110251"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Guest-Book-Novel-Sarah-Blake/dp/1250110254?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 5,
+                "rank_last_week": 0,
+                "weeks_on_list": 1,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "1982106980",
+                "primary_isbn13": "9781982106980",
+                "publisher": "Scribner",
+                "description": "The lives of neighboring families in a New York City suburb intertwine over four decades.",
+                "price": 0,
+                "title": "ASK AGAIN, YES",
+                "author": "Mary Beth Keane",
+                "contributor": "by Mary Beth Keane",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781982106980.jpg",
+                "book_image_width": 328,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Ask-Again-Mary-Beth-Keane/dp/1982106980?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "1982106980",
+                        "isbn13": "9781982106980"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781982106980?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781982106980"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Ask-Again-Mary-Beth-Keane/dp/1982106980?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 6,
+                "rank_last_week": 5,
+                "weeks_on_list": 7,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "1538761416",
+                "primary_isbn13": "9781538761410",
+                "publisher": "Grand Central",
+                "description": "The fifth book in the Memory Man series. The first man Amos Decker put behind bars asks to have his name cleared.",
+                "price": 0,
+                "title": "REDEMPTION",
+                "author": "David Baldacci",
+                "contributor": "by David Baldacci",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781538761434.jpg",
+                "book_image_width": 328,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Redemption-Memory-Man-Book-5-ebook/dp/B07G76M5LD?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "1538761416",
+                        "isbn13": "9781538761410"
+                    },
+                    {
+                        "isbn10": "1538715503",
+                        "isbn13": "9781538715505"
+                    },
+                    {
+                        "isbn10": "1538761432",
+                        "isbn13": "9781538761434"
+                    },
+                    {
+                        "isbn10": "147899925X",
+                        "isbn13": "9781478999256"
+                    },
+                    {
+                        "isbn10": "1549119273",
+                        "isbn13": "9781549119279"
+                    },
+                    {
+                        "isbn10": "1549119265",
+                        "isbn13": "9781549119262"
+                    },
+                    {
+                        "isbn10": "1478999241",
+                        "isbn13": "9781478999249"
+                    },
+                    {
+                        "isbn10": "1538761459",
+                        "isbn13": "9781538761458"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781538761410?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781538761410"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Redemption-Memory-Man-Book-5-ebook/dp/B07G76M5LD?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 7,
+                "rank_last_week": 7,
+                "weeks_on_list": 4,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "125012610X",
+                "primary_isbn13": "9781250126108",
+                "publisher": "St. Martin's",
+                "description": "Drue Campbell inherits a run-down beach bungalow and takes a job at her estranged father’s personal injury attorney office.",
+                "price": 0,
+                "title": "SUNSET BEACH",
+                "author": "Mary Kay Andrews",
+                "contributor": "by Mary Kay Andrews",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781250126108.jpg",
+                "book_image_width": 326,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Sunset-Beach-Mary-Kay-Andrews/dp/125012610X?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "125012610X",
+                        "isbn13": "9781250126108"
+                    },
+                    {
+                        "isbn10": "1250244528",
+                        "isbn13": "9781250244529"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781250126108?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781250126108"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Sunset-Beach-Mary-Kay-Andrews/dp/125012610X?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 8,
+                "rank_last_week": 4,
+                "weeks_on_list": 23,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "152479628X",
+                "primary_isbn13": "9781524796280",
+                "publisher": "Bantam",
+                "description": "The first volume of the two-part history of the Targaryens in Westeros.",
+                "price": 0,
+                "title": "FIRE AND BLOOD",
+                "author": "George RR Martin",
+                "contributor": "by George R.R. Martin",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781524796280.jpg",
+                "book_image_width": 326,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Fire-Blood-Thrones-Targaryen-History/dp/152479628X?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "152479628X",
+                        "isbn13": "9781524796280"
+                    },
+                    {
+                        "isbn10": "1524796298",
+                        "isbn13": "9781524796297"
+                    },
+                    {
+                        "isbn10": "1984838695",
+                        "isbn13": "9781984838698"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781524796280?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781524796280"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Fire-Blood-Thrones-Targaryen-History/dp/152479628X?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 9,
+                "rank_last_week": 12,
+                "weeks_on_list": 17,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "1250301696",
+                "primary_isbn13": "9781250301697",
+                "publisher": "Celadon",
+                "description": "Theo Faber looks into the mystery of a famous painter who stops speaking after shooting her husband.",
+                "price": 0,
+                "title": "THE SILENT PATIENT",
+                "author": "Alex Michaelides",
+                "contributor": "by Alex Michaelides",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781250301697.jpg",
+                "book_image_width": 326,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Silent-Patient-Alex-Michaelides/dp/1250301696?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "1250301696",
+                        "isbn13": "9781250301697"
+                    },
+                    {
+                        "isbn10": "1250301718",
+                        "isbn13": "9781250301710"
+                    },
+                    {
+                        "isbn10": "1250317541",
+                        "isbn13": "9781250317544"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781250301697?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781250301697"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Silent-Patient-Alex-Michaelides/dp/1250301696?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 10,
+                "rank_last_week": 8,
+                "weeks_on_list": 4,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "0399179321",
+                "primary_isbn13": "9780399179327",
+                "publisher": "Delacorte",
+                "description": "Isabelle McAvoy faces challenges as she raises three daughters from three separate fathers on her own.",
+                "price": 0,
+                "title": "BLESSING IN DISGUISE",
+                "author": "Danielle Steel",
+                "contributor": "by Danielle Steel",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780399179334.jpg",
+                "book_image_width": 325,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Blessing-Disguise-Novel-Danielle-Steel-ebook/dp/B07GD52248?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "0399179321",
+                        "isbn13": "9780399179327"
+                    },
+                    {
+                        "isbn10": "039917933X",
+                        "isbn13": "9780399179334"
+                    },
+                    {
+                        "isbn10": "1984884565",
+                        "isbn13": "9781984884565"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780399179327?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780399179327"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Blessing-Disguise-Novel-Danielle-Steel-ebook/dp/B07GD52248?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 11,
+                "rank_last_week": 0,
+                "weeks_on_list": 1,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "None",
+                "primary_isbn13": "9780553391541",
+                "publisher": "Del Rey",
+                "description": "The third book in the Fall of Shannara series.",
+                "price": 0,
+                "title": "THE STIEHL ASSASSIN",
+                "author": "Terry Brooks",
+                "contributor": "by Terry Brooks",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780553391558.jpg",
+                "book_image_width": 328,
+                "book_image_height": 499,
+                "amazon_product_url": "https://www.amazon.com/Stiehl-Assassin-Fall-Shannara/dp/0553391542?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780553391541?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780553391541"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Stiehl-Assassin-Fall-Shannara/dp/0553391542?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 12,
+                "rank_last_week": 11,
+                "weeks_on_list": 7,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "1984822179",
+                "primary_isbn13": "9781984822178",
+                "publisher": "Hogarth",
+                "description": "The connection between a high school star athlete and a loner ebbs and flows when they go to Trinity College in Dublin.",
+                "price": 0,
+                "title": "NORMAL PEOPLE",
+                "author": "Sally Rooney",
+                "contributor": "by Sally Rooney",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781984822178.jpg",
+                "book_image_width": 330,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Normal-People-Novel-Sally-Rooney/dp/1984822179?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "https://www.nytimes.com/2019/04/08/books/review-normal-people-sally-rooney.html",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "1984822179",
+                        "isbn13": "9781984822178"
+                    },
+                    {
+                        "isbn10": "1984822195",
+                        "isbn13": "9781984822192"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781984822178?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781984822178"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Normal-People-Novel-Sally-Rooney/dp/1984822179?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 13,
+                "rank_last_week": 3,
+                "weeks_on_list": 2,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "1538750147",
+                "primary_isbn13": "9781538750148",
+                "publisher": "Grand Central",
+                "description": "Hans-Peter Schneider pauses his ghastly deeds to seek a dead man’s gold hidden under a Miami mansion, but its caretaker’s surprising skills prove daunting.",
+                "price": 0,
+                "title": "CARI MORA",
+                "author": "Thomas Harris",
+                "contributor": "by Thomas Harris",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9781538750148.jpg",
+                "book_image_width": 328,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Cari-Mora-Novel-Thomas-Harris/dp/1538750147?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "1538750147",
+                        "isbn13": "9781538750148"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9781538750148?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781538750148"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Cari-Mora-Novel-Thomas-Harris/dp/1538750147?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 14,
+                "rank_last_week": 9,
+                "weeks_on_list": 6,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "0525536582",
+                "primary_isbn13": "9780525536581",
+                "publisher": "Putnam",
+                "description": "The 29th book in the Prey series. Lucas Davenport goes after a serial killer.",
+                "price": 0,
+                "title": "NEON PREY",
+                "author": "John Sandford",
+                "contributor": "by John Sandford",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780525536598.jpg",
+                "book_image_width": 328,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Neon-Prey-Novel-Book-29-ebook/dp/B07FZN9DY5?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "0525536582",
+                        "isbn13": "9780525536581"
+                    },
+                    {
+                        "isbn10": "0525536590",
+                        "isbn13": "9780525536598"
+                    },
+                    {
+                        "isbn10": "0525634371",
+                        "isbn13": "9780525634379"
+                    },
+                    {
+                        "isbn10": "198488283X",
+                        "isbn13": "9781984882837"
+                    },
+                    {
+                        "isbn10": "1432860275",
+                        "isbn13": "9781432860271"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780525536581?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780525536581"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Neon-Prey-Novel-Book-29-ebook/dp/B07FZN9DY5?tag=NYTBS-20"
+                    }
+                ]
+            },
+            {
+                "rank": 15,
+                "rank_last_week": 0,
+                "weeks_on_list": 1,
+                "asterisk": 0,
+                "dagger": 0,
+                "primary_isbn10": "0062676830",
+                "primary_isbn13": "9780062676832",
+                "publisher": "Harper",
+                "description": "Detective Daniel Hawthorne teams up with the author Anthony Horowitz to solve the mysterious killing of a celebrity divorce lawyer.",
+                "price": 0,
+                "title": "THE SENTENCE IS DEATH",
+                "author": "Anthony Horowitz",
+                "contributor": "by Anthony Horowitz",
+                "contributor_note": "",
+                "book_image": "https://s1.nyt.com/du/books/images/9780062676832.jpg",
+                "book_image_width": 328,
+                "book_image_height": 495,
+                "amazon_product_url": "https://www.amazon.com/Sentence-Death-Novel-Anthony-Horowitz/dp/0062676830?tag=NYTBS-20",
+                "age_group": "",
+                "book_review_link": "",
+                "first_chapter_link": "",
+                "sunday_review_link": "",
+                "article_chapter_link": "",
+                "isbns": [
+                    {
+                        "isbn10": "0062676830",
+                        "isbn13": "9780062676832"
+                    }
+                ],
+                "buy_links": [
+                    {
+                        "name": "Local Booksellers",
+                        "url": "http://www.indiebound.org/book/9780062676832?aff=NYT"
+                    },
+                    {
+                        "name": "Barnes and Noble",
+                        "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780062676832"
+                    },
+                    {
+                        "name": "Amazon",
+                        "url": "https://www.amazon.com/Sentence-Death-Novel-Anthony-Horowitz/dp/0062676830?tag=NYTBS-20"
+                    }
+                ]
+            }
+        ],
+        "corrections": []
+    }
+}
