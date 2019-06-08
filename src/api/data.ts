@@ -3,22 +3,6 @@ import { api } from './config';
  * Pulls the info from the NY Times API.
  */
 
-export type NyTimesNameApi = {
-  status: string;
-  copyright: string;
-  num_results: number;
-  results: NyTimesNameResult[];
-};
-
-type NyTimesNameResult = {
-  list_name: string;
-  display_name: string;
-  list_name_encoded: string;
-  oldest_published_date: string;
-  newest_published_date: string;
-  updated: string;
-};
-
 /**
  *
  * @param listName The name of the specific resource that needs to be fetched.

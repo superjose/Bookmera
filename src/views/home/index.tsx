@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState, useEffect, useReducer } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { getCurrentTopBooks, NyTimesNameApi } from '../../api/data';
@@ -7,9 +7,9 @@ import { Error, Loading, Card, Grid } from '../../components';
 
 function Home() {
   const [books, setBooks] = useState<NyTimesNameApi | ApiError>();
-  const [count, setCount] = useState({
+  const [count, setCount] = useReducer({
     totalBooks: 6,
-    hasAllLoaded: false,
+    haveAllLoaded: false,
   });
   const [loading, setLoading] = useState(true);
   // Let's call the API.
@@ -33,8 +33,6 @@ function Home() {
 }
 
 function RenderBooks(books: NyTimesNameApi) {
-  const renderedElements = [];
-
   for (let i = 0; i < 6; i++) {
     renderedElements.push(
       <Card
