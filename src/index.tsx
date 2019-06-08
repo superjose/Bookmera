@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// Google utility for downloading non-blocking fonts.
+// We need to control Flash of Unstyled Text...
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Open Sans:400,700'],
+  },
+});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

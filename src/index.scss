@@ -1,0 +1,26 @@
+/**
+* Here we define the global styles for all of the entire application. 
+* More specific styles for individual components are inside their own folders 
+* using styled components.
+*/
+body {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  color: #424242;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0.125em 0;
+}
+h3 {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0.125em 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

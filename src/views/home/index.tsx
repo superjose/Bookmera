@@ -1,10 +1,16 @@
 import React, { memo, useState, useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import { getCurrentTopBooks, NyTimesNameApi } from '../../api/data';
-import Loading from '../../components/loading';
+
+import { Error, Loading, Card, Grid } from '../../components';
 
 function Home() {
-  const [books, setBooks] = useState<NyTimesNameApi | [] | ApiError>([]);
+  const [books, setBooks] = useState<NyTimesNameApi | ApiError>();
+  const [count, setCount] = useState({
+    totalBooks: 6,
+    hasAllLoaded: false,
+  });
   const [loading, setLoading] = useState(true);
   // Let's call the API.
   useEffect(() => {
@@ -17,10 +23,33 @@ function Home() {
   }, []);
 
   if (loading) return <Loading />;
+
+  if (!!(books as ApiError).error)
+    return <Error msg={(books as ApiError).error.msg} />;
+
   return (
-      
-  )
-  return <p>data</p>;
+    <React.Fragment>{RenderBooks(books as NyTimesNameApi)}</React.Fragment>
+  );
+}
+
+function RenderBooks(books: NyTimesNameApi) {
+  const renderedElements = [];
+
+  for (let i = 0; i < 6; i++) {
+    renderedElements.push(
+      <Card
+        key={books.results[i].list_name_encoded}
+        title={books.results[i].display_name}
+        imgSrc={'https://s1.nyt.com/du/books/images/9780062861214.jpg'}
+      />,
+    );
+  }
+
+  return (
+    <Grid>
+      <InfiniteScroll>{renderedElements}</InfiniteScroll>
+    </Grid>
+  );
 }
 
 export default memo(Home);

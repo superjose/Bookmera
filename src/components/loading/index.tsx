@@ -1,4 +1,4 @@
-import react, { memo } from 'React';
+import React, { memo } from 'react';
 
 function Loading() {
   return <p>Loading</p>;
