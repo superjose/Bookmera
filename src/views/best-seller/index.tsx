@@ -1,17 +1,20 @@
 import React, { memo, useState, useEffect, useMemo } from 'react';
-import { RouteComponentProps, navigate } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
+import InfiniteScroll from 'react-infinite-scroller';
 import {
-  NyTimesBestSellerResult,
   LoadConfig,
   ApiError,
   NyTimesApi,
   Book,
+  Name,
 } from '../../api/typings';
 import { List } from 'immutable';
 import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
 import { Card, Loading, Grid, Error } from '../../components';
 import { getCurrentTopBooksByListName } from '../../api/data';
-import InfiniteScroll from 'react-infinite-scroller';
+import BuyNow from './buy-now';
+import { BuyNowProps } from './buy-now/index';
+import { findStoreUrl } from '../../api/utils';
 
 /**
  * After the user clicks on a card, he'll be presented with the best seller
@@ -22,7 +25,14 @@ type BestSellerRouteProp = {
   listNameEncoded?: string;
 };
 
+enum ModalState {
+  'Opened',
+  'Closed',
+}
+
 function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
+  const [modalState, setModalState] = useState<ModalState>(ModalState.Closed);
+  const [buyNowProps, setBuyNowProps] = useState<BuyNowProps>();
   const [loading, setLoading] = useState(true);
   const [loadConfig, setLoadConfig] = useState<LoadConfig>({
     toDisplay: 6,
@@ -94,7 +104,20 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
     return loadConfig.itemsShown.map(bestSellerName => {
       const bestSeller = allItems.get(bestSellerName) as Book;
       const onClick = () => {
-        alert('Swchweet 😊');
+        setModalState(ModalState.Opened);
+        setBuyNowProps({
+          amazonUrl: findStoreUrl(bestSeller.buy_links, Name.Amazon),
+          barnesAndNobleUrl: findStoreUrl(
+            bestSeller.buy_links,
+            Name.BarnesAndNoble,
+          ),
+          localStoreUrl: findStoreUrl(
+            bestSeller.buy_links,
+            Name.LocalBooksellers,
+          ),
+          bookCoverImgUrl: bestSeller.book_image,
+          description: bestSeller.description,
+        });
       };
       return (
         <Card
@@ -112,6 +135,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
 
   return (
     <Grid>
+      {modalState == ModalState.Opened && <BuyNow {...buyNowProps} />}
       <InfiniteScroll
         pageStart={0}
         hasMore={loadConfig.hasMore}

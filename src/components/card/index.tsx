@@ -66,7 +66,7 @@ function Card({ liked = false, ...props }: CardProps) {
       <RankNumber>#1</RankNumber>
       <CardFooter>
         <button>❤</button>
-        <Button className="buy-now">Buy Now</Button>
+        <Button>View</Button>
       </CardFooter>
     </StyledCard>
   );

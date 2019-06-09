@@ -8,7 +8,6 @@ import {
   ApiError,
   NyTimesNameResult,
   NyTimesApi,
-  InfiniteScrollingState,
   LoadConfig,
 } from '../../api/typings';
 import { List } from 'immutable';

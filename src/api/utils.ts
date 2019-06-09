@@ -1,3 +1,5 @@
+import { BuyLink, Name } from './typings';
+
 /**
  * A file that contains utility functions that are shared across the project.
  * These functions are independent from React or any other library.
@@ -56,4 +58,17 @@ export function range(start: number, end: number, step = 1) {
   // using Array.from() with a mapping function.
   // Finally, return the new array.
   return Array.from(Array(length), (x, index) => start + index * step);
+}
+
+/**
+ * @param {BuyLink[]} buyLinks: The list of store links (Amazon, Barnes and Noble, and Local Store) that is loaded from the server.
+ * @param {Name} name: The enum that identifies the buyLinks.
+ */
+export function findStoreUrl(buyLinks: BuyLink[], name: Name) {
+  const length = buyLinks.length;
+  for (let i = 0; i < length; i++) {
+    if (buyLinks[i].name !== name) continue;
+
+    return buyLinks[i].url;
+  }
 }
