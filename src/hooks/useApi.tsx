@@ -11,7 +11,15 @@ type ApiCall = () => Promise<
     }
 >;
 export function useApi(apiCall: ApiCall, userLoadConfig: LoadConfig) {
-  const [loadConfig, setLoadConfig] = useState<LoadConfig>(userLoadConfig);
+  const displayToWatch = window.matchMedia('(min-width:640px)');
+  /**
+   * We load the useState from the main component.
+   * We override the toDisplay to detect the window size.
+   */
+  const [loadConfig, setLoadConfig] = useState<LoadConfig>({
+    ...userLoadConfig,
+    toDisplay: displayToWatch.matches ? 6 : 3,
+  });
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
@@ -48,6 +56,35 @@ export function useApi(apiCall: ApiCall, userLoadConfig: LoadConfig) {
     // This must only be executed once; disable the linter
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  /**
+   * Since the site is responsive, changing orientations or resizing the window will need to have the
+   * displayTo property adjusted, so it loads the items as they need to.
+   */
+  function setToDisplayAccordingToSize(
+    this: MediaQueryList,
+    displayToWatch: MediaQueryListEvent,
+  ) {
+    const isDesktop = displayToWatch.matches;
+
+    if (
+      (loadConfig.toDisplay === 6 && isDesktop) ||
+      (loadConfig.toDisplay === 3 && !isDesktop)
+    )
+      return;
+
+    setLoadConfig({
+      ...loadConfig,
+      toDisplay: isDesktop ? 6 : 3,
+    });
+  }
+
+  useEffect(() => {
+    displayToWatch.addListener(setToDisplayAccordingToSize);
+    return () => {
+      displayToWatch.removeListener(setToDisplayAccordingToSize);
+    };
+  });
 
   function fetchMore() {
     const infiniteState = { ...loadConfig };
