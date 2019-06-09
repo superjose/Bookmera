@@ -1,5 +1,5 @@
 import names from '../__mocks__/names.json';
-import { List, fromJS } from 'immutable';
+import { List } from 'immutable';
 import { processApiResult, loadMore } from '../api/infiniteLoadingLogic';
 import { NyTimesNameResult, NyTimesHardCoverResult } from '../api/typings';
 

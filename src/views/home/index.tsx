@@ -12,6 +12,7 @@ import {
 } from '../../api/typings';
 import { List } from 'immutable';
 import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
+import { RouteComponentProps } from '@reach/router';
 
 interface HomeLoadConfig extends InfiniteScrollingState {
   hasMore: boolean;
@@ -19,7 +20,7 @@ interface HomeLoadConfig extends InfiniteScrollingState {
   error?: string;
 }
 
-function Home() {
+function Home(props: RouteComponentProps) {
   const [loading, setLoading] = useState(true);
   const [loadConfig, setLoadConfig] = useState<HomeLoadConfig>({
     toDisplay: 6,
@@ -98,9 +99,6 @@ function Home() {
   }, [loadConfig]);
 
   if (loading) return <Loading />;
-  console.log(bestSellerCards);
-  console.log(loadConfig);
-  console.log(!loadConfig.error);
   if (!!loadConfig.error) return <Error msg={loadConfig.error!} />;
 
   return (

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "@types/jest": "^24.0.13",
+    "@types/reach__router": "^1.2.4",
     "@types/react-dom": "^16.8.4",
     "@types/react-infinite-scroller": "^1.2.1",
     "immutable": "^4.0.0-rc.12",

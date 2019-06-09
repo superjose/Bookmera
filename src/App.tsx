@@ -1,16 +1,24 @@
-import React, { memo } from "react";
+import React, { memo, Suspense, lazy } from 'react';
+import { Router } from '@reach/router';
 
-import Header from "./components/header";
-import Home from './views/home';
+import Header from './components/header';
+import { Loading } from './components';
+
+const Home = lazy(() => import('./views/home'));
+const BestSeller = lazy(() => import('./views/best-seller'));
+
 /**
  * Where the React APP main layout resides:
  */
 function App() {
   return (
-    <React.Fragment>
+    <Suspense fallback={<Loading />}>
       <Header />
-      <Home />
-    </React.Fragment>
+      <Router>
+        <Home path="/" />
+        <BestSeller path="/:list-name" />
+      </Router>
+    </Suspense>
   );
 }
 
