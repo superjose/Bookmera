@@ -4,7 +4,7 @@ export interface NyTimesApi {
   status: string;
   copyright: string;
   num_results: number;
-  results: NyTimesNameResult[] | NyTimesBestSellerResult[];
+  results: NyTimesNameResult[] | NyTimesBestSellerResult;
 }
 
 export interface NyTimesNameResult {
@@ -77,7 +77,7 @@ export interface ApiError {
 
 export interface InfiniteScrollingState {
   toDisplay: number;
-  allItems: List<NyTimesNameResult | NyTimesBestSellerResult>;
+  allItems: List<NyTimesNameResult | Book>;
   itemsShown: number[];
   itemsNotShown: number[];
 }

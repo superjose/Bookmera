@@ -1,5 +1,10 @@
 import { range } from './utils';
-import { NyTimesApi, InfiniteScrollingState } from './typings';
+import {
+  NyTimesApi,
+  InfiniteScrollingState,
+  NyTimesBestSellerResult,
+} from './typings';
+import { isArray } from 'util';
 
 /**
  * This file handles all the logic to display the needed items.
@@ -53,7 +58,10 @@ export function processApiResult(
   itemsNotShown.push(...range(allItems.size, totalItemsIndex - 1));
 
   // Add to all items.
-  allItems = allItems.push(...apiResult.results);
+  const toPush = isArray(apiResult.results)
+    ? apiResult.results
+    : (apiResult.results as NyTimesBestSellerResult).books;
+  allItems = allItems.push(...toPush);
 
   itemsShownWithNewData(toDisplay, itemsShown, itemsNotShown);
 

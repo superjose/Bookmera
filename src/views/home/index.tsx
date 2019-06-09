@@ -82,7 +82,7 @@ function Home(props: RouteComponentProps) {
   const bestSellerCards = useMemo(() => {
     const { allItems } = loadConfig;
     return loadConfig.itemsShown.map(bestSellerName => {
-      const bestSeller = allItems.get(bestSellerName)!;
+      const bestSeller = allItems.get(bestSellerName) as NyTimesNameResult;
       const onClick = () => {
         navigate(`/${bestSeller.list_name_encoded}`);
       };

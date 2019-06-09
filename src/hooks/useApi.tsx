@@ -2,8 +2,8 @@ import {
   NyTimesApi,
   LoadConfig,
   NyTimesNameResult,
-  NyTimesBestSellerResult,
   ApiError,
+  Book,
 } from '../api/typings';
 import { useEffect, useState } from 'react';
 import { List } from 'immutable';
@@ -23,7 +23,7 @@ export function useApi(apiCall: ApiCall) {
     toDisplay: 6,
     itemsShown: [],
     itemsNotShown: [],
-    allItems: List<NyTimesNameResult | NyTimesBestSellerResult>(),
+    allItems: List<NyTimesNameResult | Book>(),
     hasMore: true,
     fetchMore: true,
   });

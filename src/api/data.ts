@@ -23,10 +23,14 @@ export async function getCurrentTopBooks() {
     };
   }
 }
-export async function getCurrentTopBooksByListName(listName: string) {
+export async function getCurrentTopBooksByListName(
+  listNameEncoded: string,
+  offset: number,
+) {
   try {
-    const result = await fetch(api.names);
+    const result = await fetch(api.bestSeller(listNameEncoded, offset));
     const data = (await result.json()) as NyTimesApi;
+    console.log(data);
     return data;
   } catch (e) {
     console.error(e.message);

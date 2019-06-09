@@ -5,6 +5,7 @@ import {
   LoadConfig,
   ApiError,
   NyTimesApi,
+  Book,
 } from '../../api/typings';
 import { List } from 'immutable';
 import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
@@ -27,7 +28,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
     toDisplay: 6,
     itemsShown: [],
     itemsNotShown: [],
-    allItems: List<NyTimesBestSellerResult>(),
+    allItems: List<Book>(),
     hasMore: true,
     fetchMore: true,
   });
@@ -37,6 +38,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
     async function fetchData() {
       const topBooks = await getCurrentTopBooksByListName(
         props.listNameEncoded!,
+        0,
       );
       const infiniteState = { ...loadConfig };
 
@@ -90,16 +92,16 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
   const bestSellerCards = useMemo(() => {
     const { allItems } = loadConfig;
     return loadConfig.itemsShown.map(bestSellerName => {
-      const bestSeller = allItems.get(bestSellerName)!;
+      const bestSeller = allItems.get(bestSellerName) as Book;
       const onClick = () => {
-        navigate(`/${bestSeller.list_name_encoded}`);
+        alert('Swchweet 😊');
       };
       return (
         <Card
           onClick={onClick}
-          key={bestSeller!.list_name}
-          title={bestSeller!.display_name}
-          imgSrc={'https://s1.nyt.com/du/books/images/9780062861214.jpg'}
+          key={bestSeller.primary_isbn10}
+          title={bestSeller.title}
+          imgSrc={bestSeller.book_image}
         />
       );
     });
