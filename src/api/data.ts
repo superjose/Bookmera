@@ -19,7 +19,6 @@ async function executeQuery(fetchQuery: string) {
   try {
     const result = await fetch(fetchQuery);
     const data = (await result.json()) as NyTimesApi;
-    console.log(data);
     return data;
   } catch (e) {
     console.error(e.message);

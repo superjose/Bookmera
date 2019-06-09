@@ -79,14 +79,14 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
         />
       );
     });
-  }, [loadConfig]);
+  }, [loadConfig, buyNowProps]);
 
   if (loading) return <Loading />;
   if (!!loadConfig.errorMsg) return <Error msg={loadConfig.errorMsg!} />;
 
   return (
     <Grid>
-      {modalState == ModalState.Opened && <BuyNow {...buyNowProps} />}
+      {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
       <InfiniteScroll
         pageStart={0}
         hasMore={loadConfig.hasMore}
