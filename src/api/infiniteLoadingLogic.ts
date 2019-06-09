@@ -15,6 +15,13 @@ import { NyTimesApi, InfiniteScrollingState } from './typings';
  *
  */
 
+/**
+ * Alias for itemsShownWithNewData. This redirection has been created in
+ * case there needs to be a different and more complex logic when loading more
+ * data. Right now, it just returns the same objects as itemsShownWithNewData,
+ * and the allItems object isn't modified, just passed along.
+ * @param infiniteState
+ */
 export function loadMore(infiniteState: InfiniteScrollingState) {
   const { toDisplay, itemsShown, itemsNotShown, allItems } = infiniteState;
   itemsShownWithNewData(toDisplay, itemsShown, itemsNotShown);
@@ -58,7 +65,8 @@ function itemsShownWithNewData(
   itemsShown: number[],
   itemsNotShown: number[],
 ) {
-  for (let i = 0; i < Math.min(toDisplay, itemsNotShown.length); i++) {
+  const top = Math.min(toDisplay, itemsNotShown.length);
+  for (let i = 0; i < top; i++) {
     itemsShown.push(itemsNotShown.shift()!);
   }
 }
