@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Router>
         <Home path="/" />
-        <BestSeller path="/:list-name" />
+        <BestSeller path="/:listNameEncoded" />
       </Router>
     </Suspense>
   );

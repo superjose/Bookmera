@@ -27,6 +27,7 @@ export async function getCurrentTopBooksByListName(listName: string) {
   try {
     const result = await fetch(api.names);
     const data = (await result.json()) as NyTimesApi;
+    return data;
   } catch (e) {
     console.error(e.message);
     return {

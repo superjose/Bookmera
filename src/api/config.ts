@@ -7,7 +7,9 @@ const apiKey = '8jdl9xoTgmGjPmngaytqI0HSwCZV3quc';
 
 // Object.freeze protects it at the object level from any mutations.
 export const api = Object.freeze({
-  names: `https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=${apiKey}`
+  names: `https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=${apiKey}`,
+  bestSeller: (listNameEncoded: string, offset = 0) =>
+    `https://api.nytimes.com/svc/books/v3/lists/current/${listNameEncoded}.json?api-key=${apiKey}&offset=${offset}`,
 });
 
 export default api;

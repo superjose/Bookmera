@@ -9,20 +9,15 @@ import {
   NyTimesNameResult,
   NyTimesApi,
   InfiniteScrollingState,
+  LoadConfig,
 } from '../../api/typings';
 import { List } from 'immutable';
 import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
-import { RouteComponentProps } from '@reach/router';
-
-interface HomeLoadConfig extends InfiniteScrollingState {
-  hasMore: boolean;
-  fetchMore: boolean;
-  error?: string;
-}
+import { RouteComponentProps, navigate } from '@reach/router';
 
 function Home(props: RouteComponentProps) {
   const [loading, setLoading] = useState(true);
-  const [loadConfig, setLoadConfig] = useState<HomeLoadConfig>({
+  const [loadConfig, setLoadConfig] = useState<LoadConfig>({
     toDisplay: 6,
     itemsShown: [],
     itemsNotShown: [],
@@ -40,7 +35,7 @@ function Home(props: RouteComponentProps) {
       if (!!(topBooks as ApiError).error) {
         setLoadConfig({
           ...infiniteState,
-          error: (topBooks as ApiError).error.msg,
+          errorMsg: (topBooks as ApiError).error.msg,
         });
         return;
       }
@@ -56,7 +51,7 @@ function Home(props: RouteComponentProps) {
 
       setLoadConfig({
         ...loadConfig,
-        error: '',
+        errorMsg: '',
         hasMore,
         fetchMore,
         allItems,
@@ -87,9 +82,13 @@ function Home(props: RouteComponentProps) {
   const bestSellerCards = useMemo(() => {
     const { allItems } = loadConfig;
     return loadConfig.itemsShown.map(bestSellerName => {
-      const bestSeller = allItems.get(bestSellerName);
+      const bestSeller = allItems.get(bestSellerName)!;
+      const onClick = () => {
+        navigate(`/${bestSeller.list_name_encoded}`);
+      };
       return (
         <Card
+          onClick={onClick}
           key={bestSeller!.list_name}
           title={bestSeller!.display_name}
           imgSrc={'https://s1.nyt.com/du/books/images/9780062861214.jpg'}
@@ -99,7 +98,7 @@ function Home(props: RouteComponentProps) {
   }, [loadConfig]);
 
   if (loading) return <Loading />;
-  if (!!loadConfig.error) return <Error msg={loadConfig.error!} />;
+  if (!!loadConfig.errorMsg) return <Error msg={loadConfig.errorMsg!} />;
 
   return (
     <Grid>

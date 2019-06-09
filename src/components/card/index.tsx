@@ -10,6 +10,7 @@ type CardProps = {
   author?: string;
   rank?: number;
   liked?: boolean;
+  onClick?(): void;
 };
 
 const StyledCard = styled.div`
@@ -57,7 +58,7 @@ const CardFooter = styled.div`
 function Card({ liked = false, ...props }: CardProps) {
   return (
     <StyledCard>
-      <BookCover className="cover" src={props.imgSrc} />
+      <BookCover className="cover" src={props.imgSrc} onClick={props.onClick} />
       <AuthorInfo>
         <h1>{props.title}</h1>
         <h3>{props.author}</h3>
