@@ -1,17 +1,11 @@
-import React, { memo, useState, useEffect, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { getCurrentTopBooks as getBestSellerListNames } from '../../api/data';
 
-import { Error, Loading, Card, Grid, Api } from '../../components';
-import {
-  ApiError,
-  NyTimesNameResult,
-  NyTimesApi,
-  LoadConfig,
-} from '../../api/typings';
+import { Loading, Card, Grid } from '../../components';
+import { NyTimesNameResult } from '../../api/typings';
 import { List } from 'immutable';
-import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
 import { RouteComponentProps, navigate } from '@reach/router';
 import { useApi } from '../../hooks/useApi';
 

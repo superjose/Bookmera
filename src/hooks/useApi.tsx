@@ -1,12 +1,5 @@
-import {
-  NyTimesApi,
-  LoadConfig,
-  NyTimesNameResult,
-  ApiError,
-  Book,
-} from '../api/typings';
+import { NyTimesApi, LoadConfig, ApiError } from '../api/typings';
 import { useEffect, useState } from 'react';
-import { List } from 'immutable';
 import { processApiResult, loadMore } from '../api/infiniteLoadingLogic';
 
 type ApiCall = () => Promise<
@@ -52,6 +45,8 @@ export function useApi(apiCall: ApiCall, userLoadConfig: LoadConfig) {
       setLoading(false);
     }
     fetchData();
+    // This must only be executed once; disable the linter
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function fetchMore() {

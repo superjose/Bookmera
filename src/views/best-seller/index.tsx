@@ -1,9 +1,8 @@
-import React, { memo, useState, useEffect, useMemo } from 'react';
+import React, { memo, useState, useMemo } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import InfiniteScroll from 'react-infinite-scroller';
-import { LoadConfig, Book, Name } from '../../api/typings';
+import { Book, Name } from '../../api/typings';
 import { List } from 'immutable';
-import { loadMore } from '../../api/infiniteLoadingLogic';
 import { Card, Loading, Grid, Error } from '../../components';
 import { getCurrentTopBooksByListName } from '../../api/data';
 import BuyNow from './buy-now';
