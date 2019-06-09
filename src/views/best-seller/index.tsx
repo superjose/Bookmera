@@ -3,7 +3,7 @@ import { RouteComponentProps, Link } from '@reach/router';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Book, Name } from '../../api/typings';
 import { List } from 'immutable';
-import { Card, Loading, Grid, Error } from '../../components';
+import { Card, Loading, Grid, Error, BackArrow } from '../../components';
 import { getCurrentTopBooksByListName } from '../../api/data';
 import BuyNow from './buy-now';
 import { BuyNowProps } from './buy-now/index';
@@ -88,7 +88,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
 
   return (
     <React.Fragment>
-      <Link to="/">Go Back</Link>
+      <BackArrow to="/" />
 
       {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
       <InfiniteScroll

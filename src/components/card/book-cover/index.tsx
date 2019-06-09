@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import styles from 'styled-components';
+import { styled } from '../../styles/theme';
 
-const BookCover = styles.img`
-  border-radius: 4px;
-  width:auto;
-  max-height: 495px;
+const BookCover = styled.img`
+  border-radius: ${props => props.theme.all.borderRadius};
+  width: auto;
+  max-height: 500px;
   margin-bottom: 0.125em;
   cursor: pointer;
 `;
