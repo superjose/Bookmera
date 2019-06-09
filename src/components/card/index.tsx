@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import { styled } from '../styles/theme';
 
 import BookCover from './book-cover';
 import Button from '../button';
@@ -24,6 +24,7 @@ const StyledCard = styled.div`
   h1,
   h3 {
     padding-left: 1rem;
+    color: ${props => props.theme.main.textColor};
   }
 
   .favorite {
@@ -63,7 +64,7 @@ function Card({ liked = false, ...props }: CardProps) {
         <h1>{props.title}</h1>
         <h3>{props.author}</h3>
       </AuthorInfo>
-      <RankNumber>#1</RankNumber>
+      <RankNumber>{props.rank}</RankNumber>
       <CardFooter>
         <button>❤</button>
         <Button onClick={props.onClick}>View</Button>

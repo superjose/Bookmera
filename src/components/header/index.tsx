@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import styled, { ThemedStyledInterface } from 'styled-components';
 import { Theme, lightTheme, darkTheme } from '../styles/theme';
+import { Link } from '@reach/router';
 
 const Nav = styled.ul`
   list-style-type: none;
@@ -8,17 +9,18 @@ const Nav = styled.ul`
   padding: 1rem;
   overflow: hidden;
   background-color: ${props => props.theme.main.color};
-  color: ${props => props.theme.main.textColor};
   li {
     float: left;
     padding: 0 1em;
   }
   li a {
     display: block;
-    color: white;
     text-align: center;
+    text-decoration: none;
+    color: ${props => props.theme.main.textColor};
   }
-  li a:hover {
+  .pull-right {
+    float: right;
   }
 `;
 
@@ -37,11 +39,13 @@ function Header(props: HeaderProps) {
 
   return (
     <Nav>
-      <li>Bookmera</li>
       <li>
+        <Link to="/"> Bookmera </Link>
+      </li>
+      <li className="pull-right">
         <button onClick={setLightTheme}>Light </button>
       </li>
-      <li>
+      <li className="pull-right">
         <button onClick={setDarkTheme}> Dark </button>
       </li>
     </Nav>

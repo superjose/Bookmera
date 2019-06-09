@@ -76,6 +76,8 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
           key={bestSeller.amazon_product_url}
           title={bestSeller.title}
           imgSrc={bestSeller.book_image}
+          author={bestSeller.author}
+          rank={bestSeller.rank}
         />
       );
     });
