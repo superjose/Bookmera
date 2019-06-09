@@ -32,7 +32,11 @@ enum ModalState {
 
 function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
   const [modalState, setModalState] = useState<ModalState>(ModalState.Closed);
-  const [buyNowProps, setBuyNowProps] = useState<BuyNowProps>();
+  const [buyNowProps, setBuyNowProps] = useState<BuyNowProps>({
+    bookCoverImgUrl: '',
+    description: '',
+    closeFn: () => setModalState(ModalState.Closed),
+  });
   const [loading, setLoading] = useState(true);
   const [loadConfig, setLoadConfig] = useState<LoadConfig>({
     toDisplay: 6,
@@ -106,6 +110,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
       const onClick = () => {
         setModalState(ModalState.Opened);
         setBuyNowProps({
+          ...buyNowProps,
           amazonUrl: findStoreUrl(bestSeller.buy_links, Name.Amazon),
           barnesAndNobleUrl: findStoreUrl(
             bestSeller.buy_links,
