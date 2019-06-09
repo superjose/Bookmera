@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { styled } from '../styles/theme';
 
 const Backdrop = styled.section`
@@ -38,16 +38,29 @@ type ModalProps = {
   closeFn(): void;
 };
 
-const Modal = (props: ModalProps & React.HTMLProps<HTMLDivElement>) => (
-  <React.Fragment>
-    <Backdrop onClick={props.closeFn} />
-    <Content>
-      <button className="close-btn" onClick={props.closeFn}>
-        Close
-      </button>
-      {props.children}
-    </Content>
-  </React.Fragment>
-);
+function Modal(props: ModalProps & React.HTMLProps<HTMLDivElement>) {
+  function closeModal(evt: KeyboardEvent) {
+    if (evt.keyCode !== 27) return;
+    props.closeFn();
+  }
 
+  useEffect(() => {
+    window.addEventListener('keydown', closeModal);
+    return () => {
+      window.removeEventListener('keydown', closeModal);
+    };
+  }, []);
+
+  return (
+    <React.Fragment>
+      <Backdrop onClick={props.closeFn} />
+      <Content>
+        <button className="close-btn" onClick={props.closeFn}>
+          Close
+        </button>
+        {props.children}
+      </Content>
+    </React.Fragment>
+  );
+}
 export default memo(Modal);

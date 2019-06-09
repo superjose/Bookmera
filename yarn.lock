@@ -4863,6 +4863,14 @@ icss-utils@^4.1.0:
   dependencies:
     postcss "^7.0.14"
 
+idb-kv-store@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/idb-kv-store/-/idb-kv-store-4.4.0.tgz#22c56a8d5f90bd88f818a859db9c58627de278be"
+  integrity sha1-IsVqjV+QvYj4GKhZ25xYYn3ieL4=
+  dependencies:
+    inherits "^2.0.3"
+    promisize "^1.1.2"
+
 identity-obj-proxy@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
@@ -8113,6 +8121,11 @@ promise@^7.1.1:
   integrity sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==
   dependencies:
     asap "~2.0.3"
+
+promisize@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/promisize/-/promisize-1.1.2.tgz#9b47e2cb2ae497eb1ebadc2c4191d64d15c949d1"
+  integrity sha1-m0fiyyrkl+seutwsQZHWTRXJSdE=
 
 prompts@^2.0.1:
   version "2.0.4"
