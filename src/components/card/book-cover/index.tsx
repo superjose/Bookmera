@@ -6,6 +6,7 @@ const BookCover = styles.img`
   width:100%;
   max-height: 495px;
   margin-bottom: 0.125em;
+  cursor: pointer;
 `;
 
 export default memo(BookCover);

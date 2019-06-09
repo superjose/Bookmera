@@ -41,20 +41,18 @@ function Home(props: RouteComponentProps) {
   }, [loadConfig]);
 
   return (
-    <Grid>
-      <React.Fragment>
-        {loading && <Loading />}
-        {!loading && !loadConfig.errorMsg && (
-          <InfiniteScroll
-            pageStart={0}
-            hasMore={loadConfig.hasMore}
-            loadMore={fetchMore}
-          >
-            {bestSellerCards}
-          </InfiniteScroll>
-        )}
-      </React.Fragment>
-    </Grid>
+    <React.Fragment>
+      {loading && <Loading />}
+      {!loading && !loadConfig.errorMsg && (
+        <InfiniteScroll
+          pageStart={0}
+          hasMore={loadConfig.hasMore}
+          loadMore={fetchMore}
+        >
+          <Grid>{bestSellerCards}</Grid>
+        </InfiniteScroll>
+      )}
+    </React.Fragment>
   );
 }
 

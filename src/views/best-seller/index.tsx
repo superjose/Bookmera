@@ -87,16 +87,15 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
   return (
     <React.Fragment>
       <Link to="/">Go Back</Link>
-      <Grid>
-        {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
-        <InfiniteScroll
-          pageStart={0}
-          hasMore={loadConfig.hasMore}
-          loadMore={fetchMore}
-        >
-          {bestSellerCards}
-        </InfiniteScroll>
-      </Grid>
+
+      {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
+      <InfiniteScroll
+        pageStart={0}
+        hasMore={loadConfig.hasMore}
+        loadMore={fetchMore}
+      >
+        <Grid>{bestSellerCards}</Grid>
+      </InfiniteScroll>
     </React.Fragment>
   );
 }
