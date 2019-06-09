@@ -1,13 +1,11 @@
-import {
-  NyTimesApi,
-  LoadConfig,
-  NyTimesNameResult,
-  ApiError,
-  Book,
-} from '../api/typings';
-import { useEffect, useState } from 'react';
-import { List } from 'immutable';
-import { processApiResult, loadMore } from '../api/infiniteLoadingLogic';
+import { LoadConfig, ApiError, NyTimesApi } from '../../api/typings';
+import React, { useState, useEffect, memo } from 'react';
+import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
+
+/**
+ * I had to refactor the component so it does render-to-props
+ * instead. Home and BestSeller share the logic between them.
+ */
 
 type ApiCall = () => Promise<
   | NyTimesApi
@@ -17,12 +15,27 @@ type ApiCall = () => Promise<
       };
     }
 >;
-export function useApi(apiCall: ApiCall, userLoadConfig: LoadConfig) {
-  const [loadConfig, setLoadConfig] = useState<LoadConfig>(userLoadConfig);
+
+type ApiProps = {
+  userLoadConfig: LoadConfig;
+  apiCall: ApiCall;
+  render(
+    loading: boolean,
+    loadConfig: LoadConfig,
+    fetchMore: () => void,
+  ): JSX.Element;
+};
+
+function Api(props: ApiProps) {
   const [loading, setLoading] = useState(true);
+
+  const [loadConfig, setLoadConfig] = useState<LoadConfig>(
+    props.userLoadConfig,
+  );
+
   useEffect(() => {
     async function fetchData() {
-      const topBooks = await apiCall();
+      const topBooks = await props.apiCall();
       const infiniteState = { ...loadConfig };
 
       if (!!(topBooks as ApiError).error) {
@@ -69,5 +82,7 @@ export function useApi(apiCall: ApiCall, userLoadConfig: LoadConfig) {
     });
   }
 
-  return { loadConfig, loading, fetchMore };
+  return props.render(loading, loadConfig, fetchMore);
 }
+
+export default memo(Api);

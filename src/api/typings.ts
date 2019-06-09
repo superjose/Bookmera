@@ -84,6 +84,5 @@ export interface InfiniteScrollingState {
 
 export interface LoadConfig extends InfiniteScrollingState {
   hasMore: boolean;
-  fetchMore: boolean;
   errorMsg?: string;
 }

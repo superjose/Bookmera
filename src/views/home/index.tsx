@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import { getCurrentTopBooks as getBestSellerListNames } from '../../api/data';
 
-import { Error, Loading, Card, Grid } from '../../components';
+import { Error, Loading, Card, Grid, Api } from '../../components';
 import {
   ApiError,
   NyTimesNameResult,
@@ -13,70 +13,20 @@ import {
 import { List } from 'immutable';
 import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
 import { RouteComponentProps, navigate } from '@reach/router';
+import { useApi } from '../../hooks/useApi';
 
 function Home(props: RouteComponentProps) {
-  const [loading, setLoading] = useState(true);
-  const [loadConfig, setLoadConfig] = useState<LoadConfig>({
+  const initialLoadConfig = {
     toDisplay: 6,
     itemsShown: [],
     itemsNotShown: [],
     allItems: List<NyTimesNameResult>(),
     hasMore: true,
-    fetchMore: true,
-  });
-
-  // Let's call the API.
-  useEffect(() => {
-    async function fetchData() {
-      const topBooks = await getBestSellerListNames();
-      const infiniteState = { ...loadConfig };
-
-      if (!!(topBooks as ApiError).error) {
-        setLoadConfig({
-          ...infiniteState,
-          errorMsg: (topBooks as ApiError).error.msg,
-        });
-        return;
-      }
-
-      const fetchMore = (topBooks as NyTimesApi).num_results <= 20;
-
-      const { allItems, itemsShown, itemsNotShown } = processApiResult(
-        topBooks as NyTimesApi,
-        infiniteState,
-      );
-
-      const hasMore = fetchMore || (!fetchMore && itemsNotShown.length > 0);
-
-      setLoadConfig({
-        ...loadConfig,
-        errorMsg: '',
-        hasMore,
-        fetchMore,
-        allItems,
-        itemsShown,
-        itemsNotShown,
-      });
-
-      setLoading(false);
-    }
-    fetchData();
-  }, []);
-
-  function fetchMore() {
-    const infiniteState = { ...loadConfig };
-    const { allItems, itemsShown, itemsNotShown } = loadMore(infiniteState);
-
-    const hasMore = itemsNotShown.length > 0;
-
-    setLoadConfig({
-      ...loadConfig,
-      hasMore,
-      itemsShown,
-      itemsNotShown,
-      allItems,
-    });
-  }
+  };
+  const { loadConfig, loading, fetchMore } = useApi(
+    getBestSellerListNames,
+    initialLoadConfig,
+  );
 
   const bestSellerCards = useMemo(() => {
     const { allItems } = loadConfig;
@@ -96,18 +46,21 @@ function Home(props: RouteComponentProps) {
     });
   }, [loadConfig]);
 
-  if (loading) return <Loading />;
-  if (!!loadConfig.errorMsg) return <Error msg={loadConfig.errorMsg!} />;
-
   return (
     <Grid>
-      <InfiniteScroll
-        pageStart={0}
-        hasMore={loadConfig.hasMore}
-        loadMore={fetchMore}
-      >
-        {bestSellerCards}
-      </InfiniteScroll>
+      <React.Fragment>
+        {loading && <Loading />}
+        {!loading && !loadConfig.errorMsg && (
+          <InfiniteScroll
+            pageStart={0}
+            hasMore={loadConfig.hasMore}
+            loadMore={fetchMore}
+          >
+            {bestSellerCards}
+          </InfiniteScroll>
+        )}
+      </React.Fragment>
+      />
     </Grid>
   );
 }

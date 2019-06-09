@@ -1,20 +1,15 @@
 import React, { memo, useState, useEffect, useMemo } from 'react';
 import { RouteComponentProps } from '@reach/router';
 import InfiniteScroll from 'react-infinite-scroller';
-import {
-  LoadConfig,
-  ApiError,
-  NyTimesApi,
-  Book,
-  Name,
-} from '../../api/typings';
+import { LoadConfig, Book, Name } from '../../api/typings';
 import { List } from 'immutable';
-import { processApiResult, loadMore } from '../../api/infiniteLoadingLogic';
+import { loadMore } from '../../api/infiniteLoadingLogic';
 import { Card, Loading, Grid, Error } from '../../components';
 import { getCurrentTopBooksByListName } from '../../api/data';
 import BuyNow from './buy-now';
 import { BuyNowProps } from './buy-now/index';
 import { findStoreUrl } from '../../api/utils';
+import { useApi } from '../../hooks/useApi';
 
 /**
  * After the user clicks on a card, he'll be presented with the best seller
@@ -30,86 +25,26 @@ enum ModalState {
   'Closed',
 }
 
-const offsetValue = 20;
-
 function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
-  const [offsetCounter, setOffsetCounter] = useState(0);
   const [modalState, setModalState] = useState<ModalState>(ModalState.Closed);
   const [buyNowProps, setBuyNowProps] = useState<BuyNowProps>({
     bookCoverImgUrl: '',
     description: '',
     closeFn: () => setModalState(ModalState.Closed),
   });
-  const [loading, setLoading] = useState(true);
-  const [loadConfig, setLoadConfig] = useState<LoadConfig>({
+  const initialLoadConfig = {
     toDisplay: 6,
     itemsShown: [],
     itemsNotShown: [],
     allItems: List<Book>(),
     hasMore: true,
-    fetchMore: true,
-  });
+  };
 
   // Let's call the API.
-  useEffect(() => {
-    async function fetchData() {
-      console.log('here');
-      const topBooks = await getCurrentTopBooksByListName(
-        props.listNameEncoded!,
-        offsetCounter * offsetValue,
-      );
-      const infiniteState = { ...loadConfig };
-
-      if (!!(topBooks as ApiError).error) {
-        setLoadConfig({
-          ...infiniteState,
-          errorMsg: (topBooks as ApiError).error.msg,
-        });
-        return;
-      }
-
-      const fetchMore = (topBooks as NyTimesApi).num_results >= 20;
-
-      const { allItems, itemsShown, itemsNotShown } = processApiResult(
-        topBooks as NyTimesApi,
-        infiniteState,
-      );
-
-      const hasMore = fetchMore || (!fetchMore && itemsNotShown.length > 0);
-
-      setLoadConfig({
-        ...loadConfig,
-        errorMsg: '',
-        hasMore,
-        fetchMore,
-        allItems,
-        itemsShown,
-        itemsNotShown,
-      });
-
-      setLoading(false);
-    }
-    fetchData();
-  }, [offsetCounter]);
-
-  function fetchMore() {
-    const infiniteState = { ...loadConfig };
-    const { allItems, itemsShown, itemsNotShown } = loadMore(infiniteState);
-
-    if (itemsNotShown.length <= loadConfig.toDisplay && loadConfig.fetchMore) {
-      setOffsetCounter(offsetCounter + 1);
-    }
-
-    const hasMore = itemsNotShown.length > 0;
-
-    setLoadConfig({
-      ...loadConfig,
-      hasMore,
-      itemsShown,
-      itemsNotShown,
-      allItems,
-    });
-  }
+  const { loadConfig, loading, fetchMore } = useApi(
+    getCurrentTopBooksByListName.bind(null, props.listNameEncoded!),
+    initialLoadConfig,
+  );
 
   const bestSellerCards = useMemo(() => {
     const { allItems } = loadConfig;
