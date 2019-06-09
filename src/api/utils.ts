@@ -1,5 +1,6 @@
 /**
- * A file that contains special tooling.
+ * A file that contains utility functions that are shared across the project.
+ * These functions are independent from React or any other library.
  */
 
 /**

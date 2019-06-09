@@ -1,6 +1,7 @@
 import names from '../__mocks__/names.json';
-
+import { List } from 'immutable';
 import { processApiResult } from '../api/infiniteLoadingLogic';
+import { NyTimesNameResult, NyTimesHardCoverResult } from '../api/typings';
 
 const apiResults = names;
 
@@ -10,7 +11,7 @@ describe('Infinite Scroll Suite', () => {
     const infiniteState = {
       toDisplay: 6,
       itemsShown: [],
-      allItems: [],
+      allItems: List<NyTimesNameResult | NyTimesHardCoverResult>(),
       itemsNotShown: [],
     };
 
@@ -20,5 +21,7 @@ describe('Infinite Scroll Suite', () => {
     );
 
     expect(itemsShown.length).toBe(6);
+    expect(allItems.size).toBe(55);
+    expect(infiniteState.itemsNotShown.length).toBe(0);
   });
 });

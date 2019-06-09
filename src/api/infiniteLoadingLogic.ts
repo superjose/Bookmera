@@ -1,4 +1,7 @@
 import { range } from './utils';
+import { NyTimesApi, InfiniteScrollingState } from './typings';
+import { List } from 'immutable';
+
 /**
  * This file handles all the logic to display the needed items.
  * Why does this seem to be overly complex?
@@ -26,14 +29,33 @@ export function processApiResult(
   infiniteState: InfiniteScrollingState,
 ) {
   // Destruct into individual variables.
-  const { toDisplay, itemsShown, allItems, itemsNotShown } = Object.assign(
-    {},
-    infiniteState,
-  );
-  const apiTotalItems = apiResult.num_results;
-  const totalItemsIndex = allItems.length + apiTotalItems;
+  const { toDisplay } = infiniteState;
+  let { allItems } = infiniteState;
+  const itemsShown = [...infiniteState.itemsShown];
+  const itemsNotShown = [...infiniteState.itemsNotShown];
 
-  itemsNotShown.push(...range(allItems.length, totalItemsIndex));
+  const apiTotalItems = apiResult.num_results;
+  const totalItemsIndex = allItems.size + apiTotalItems;
+
+  // These are the indexes that
+  itemsNotShown.push(...range(allItems.size, totalItemsIndex));
+
+  // Add to all items.
+  allItems = allItems.push(...apiResult.results);
+
+  itemsShownWithNewData(toDisplay, itemsShown, itemsNotShown);
 
   return { allItems, itemsShown, itemsNotShown };
+}
+
+function itemsShownWithNewData(
+  toDisplay: number,
+  itemsShown: number[],
+  itemsNotShown: number[],
+) {
+  for (let i = 0; i < Math.min(toDisplay, itemsNotShown.length); i++) {
+    itemsShown.push(itemsNotShown.shift()!);
+  }
+
+  return itemsShown;
 }
