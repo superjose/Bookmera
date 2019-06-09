@@ -30,7 +30,10 @@ enum ModalState {
   'Closed',
 }
 
+const offsetValue = 20;
+
 function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
+  const [offsetCounter, setOffsetCounter] = useState(0);
   const [modalState, setModalState] = useState<ModalState>(ModalState.Closed);
   const [buyNowProps, setBuyNowProps] = useState<BuyNowProps>({
     bookCoverImgUrl: '',
@@ -50,9 +53,10 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
   // Let's call the API.
   useEffect(() => {
     async function fetchData() {
+      console.log('here');
       const topBooks = await getCurrentTopBooksByListName(
         props.listNameEncoded!,
-        0,
+        offsetCounter * offsetValue,
       );
       const infiniteState = { ...loadConfig };
 
@@ -64,7 +68,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
         return;
       }
 
-      const fetchMore = (topBooks as NyTimesApi).num_results <= 20;
+      const fetchMore = (topBooks as NyTimesApi).num_results >= 20;
 
       const { allItems, itemsShown, itemsNotShown } = processApiResult(
         topBooks as NyTimesApi,
@@ -86,11 +90,15 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [offsetCounter]);
 
   function fetchMore() {
     const infiniteState = { ...loadConfig };
     const { allItems, itemsShown, itemsNotShown } = loadMore(infiniteState);
+
+    if (itemsNotShown.length <= loadConfig.toDisplay && loadConfig.fetchMore) {
+      setOffsetCounter(offsetCounter + 1);
+    }
 
     const hasMore = itemsNotShown.length > 0;
 
@@ -124,10 +132,14 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
           description: bestSeller.description,
         });
       };
+
+      // Sometimes there may not be an isbn10.
+      // I'm using the amazon_product-url because there are times that isbn10 or isbn13 isn't available.
+
       return (
         <Card
           onClick={onClick}
-          key={bestSeller.primary_isbn10}
+          key={bestSeller.amazon_product_url}
           title={bestSeller.title}
           imgSrc={bestSeller.book_image}
         />
