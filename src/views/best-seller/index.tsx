@@ -1,5 +1,5 @@
 import React, { memo, useState, useMemo } from 'react';
-import { RouteComponentProps } from '@reach/router';
+import { RouteComponentProps, Link } from '@reach/router';
 import InfiniteScroll from 'react-infinite-scroller';
 import { Book, Name } from '../../api/typings';
 import { List } from 'immutable';
@@ -85,16 +85,19 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
   if (!!loadConfig.errorMsg) return <Error msg={loadConfig.errorMsg!} />;
 
   return (
-    <Grid>
-      {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
-      <InfiniteScroll
-        pageStart={0}
-        hasMore={loadConfig.hasMore}
-        loadMore={fetchMore}
-      >
-        {bestSellerCards}
-      </InfiniteScroll>
-    </Grid>
+    <React.Fragment>
+      <Link to="/">Go Back</Link>
+      <Grid>
+        {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
+        <InfiniteScroll
+          pageStart={0}
+          hasMore={loadConfig.hasMore}
+          loadMore={fetchMore}
+        >
+          {bestSellerCards}
+        </InfiniteScroll>
+      </Grid>
+    </React.Fragment>
   );
 }
 

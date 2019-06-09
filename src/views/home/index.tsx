@@ -54,7 +54,6 @@ function Home(props: RouteComponentProps) {
           </InfiniteScroll>
         )}
       </React.Fragment>
-      />
     </Grid>
   );
 }
