@@ -3,7 +3,13 @@ import styled, { ThemedStyledInterface } from 'styled-components';
 import { Theme, lightTheme, darkTheme } from '../styles/theme';
 import { Link } from '@reach/router';
 
-const Nav = styled.ul`
+const Nav = styled.nav`
+  position: fixed;
+  width: 100%;
+  top: 0;
+`;
+
+const Contents = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 1rem;
@@ -39,15 +45,17 @@ function Header(props: HeaderProps) {
 
   return (
     <Nav>
-      <li>
-        <Link to="/"> Bookmera </Link>
-      </li>
-      <li className="pull-right">
-        <button onClick={setLightTheme}>Light </button>
-      </li>
-      <li className="pull-right">
-        <button onClick={setDarkTheme}> Dark </button>
-      </li>
+      <Contents>
+        <li>
+          <Link to="/"> Bookmera </Link>
+        </li>
+        <li className="pull-right">
+          <button onClick={setLightTheme}>Light </button>
+        </li>
+        <li className="pull-right">
+          <button onClick={setDarkTheme}> Dark </button>
+        </li>
+      </Contents>
     </Nav>
   );
 }

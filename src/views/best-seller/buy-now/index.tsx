@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import { Modal } from '../../../components';
+import { Modal, BookCover } from '../../../components';
+import styled from 'styled-components';
 
 export type BuyNowProps = {
   amazonUrl?: string;
@@ -10,28 +11,66 @@ export type BuyNowProps = {
   closeFn(): void;
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  height: 100%;
+  width: 100%;
+
+  @media (min-width: 40rem) {
+    flex-flow: row;
+  }
+`;
+
+const LeftPanel = styled.div`
+  align-self: center;
+`;
+
+const RightPanel = styled.div`
+  padding: 1.5rem;
+  box-sizing: border-box;
+`;
+
 function BuyNow(props: BuyNowProps) {
-  const { amazonUrl, barnesAndNobleUrl, localStoreUrl, description } = props;
+  const {
+    amazonUrl,
+    barnesAndNobleUrl,
+    localStoreUrl,
+    description,
+    bookCoverImgUrl,
+  } = props;
   return (
     <Modal closeFn={props.closeFn}>
-      <p>{description}</p>
-      {localStoreUrl && (
-        <a href={localStoreUrl} rel="noopener noreferrer" target="_blank">
-          Local Store
-        </a>
-      )}
-      <br />
-      {barnesAndNobleUrl && (
-        <a href={barnesAndNobleUrl} rel="noopener noreferrer" target="_blank">
-          Barnes and Nobel
-        </a>
-      )}
-      <br />
-      {amazonUrl && (
-        <a href={amazonUrl} rel="noopener noreferrer" target="_blank">
-          Amazon
-        </a>
-      )}
+      <Wrapper>
+        <LeftPanel>
+          <BookCover src={bookCoverImgUrl} />
+        </LeftPanel>
+        <RightPanel>
+          <p>{description}</p>
+          {localStoreUrl && (
+            <a href={localStoreUrl} rel="noopener noreferrer" target="_blank">
+              Local Store
+            </a>
+          )}
+          <br />
+          {barnesAndNobleUrl && (
+            <a
+              href={barnesAndNobleUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Barnes and Nobel
+            </a>
+          )}
+          <br />
+          {amazonUrl && (
+            <a href={amazonUrl} rel="noopener noreferrer" target="_blank">
+              Amazon
+            </a>
+          )}
+        </RightPanel>
+      </Wrapper>
     </Modal>
   );
 }

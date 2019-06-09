@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import { styled } from '../styles/theme';
 
 const Backdrop = styled.section`
   position: fixed;
@@ -18,13 +18,13 @@ const Content = styled.div`
   position: fixed;
   z-index: 2;
   background-color: white;
+  overflow-y: scroll;
   width: 90%;
-
+  border-radius: ${props => props.theme.all.borderRadius};
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   max-width: 40rem;
-  height: 10rem;
 
   > .close-btn {
     position: absolute;

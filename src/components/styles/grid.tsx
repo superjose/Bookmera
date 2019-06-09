@@ -7,7 +7,7 @@ const Grid = styled.section`
   width: 100%;
   margin: 0 auto;
   grid-gap: 1.5rem;
-
+  justify-items: center;
   grid-template-columns: minmax(320px, 1fr);
   /* grid-auto-flow: column; */
 
