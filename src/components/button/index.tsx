@@ -1,7 +1,7 @@
-import { memo } from 'react';
 import styled from 'styled-components';
+import { memo } from 'react';
 
-export const Button = styled.button`
+const Button = styled.button`
   background-color: #00796b;
   font-size: 1rem;
   height: 2.3125rem;
@@ -19,3 +19,5 @@ export const Button = styled.button`
     background-color: #004d40;
   }
 `;
+
+export default memo(Button);

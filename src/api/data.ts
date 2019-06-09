@@ -1,4 +1,5 @@
 import { api } from './config';
+import { NyTimesApi } from './typings';
 /**
  * Pulls the info from the NY Times API.
  */
@@ -10,7 +11,7 @@ import { api } from './config';
 export async function getCurrentTopBooks() {
   try {
     const result = await fetch(api.names);
-    const data = (await result.json()) as NyTimesNameApi;
+    const data = (await result.json()) as NyTimesApi;
     console.log(data);
     return data;
   } catch (e) {
@@ -26,7 +27,7 @@ export async function getCurrentTopBooks() {
 export async function getCurrentTopBooksByListName(listName: string) {
   try {
     const result = await fetch(api.names);
-    const data = (await result.json()) as NyTimesNameApi;
+    const data = (await result.json()) as NyTimesApi;
 
     console.log(data);
   } catch (e) {

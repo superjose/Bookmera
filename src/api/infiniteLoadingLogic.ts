@@ -1,6 +1,5 @@
 import { range } from './utils';
 import { NyTimesApi, InfiniteScrollingState } from './typings';
-import { List } from 'immutable';
 
 /**
  * This file handles all the logic to display the needed items.
@@ -15,6 +14,12 @@ import { List } from 'immutable';
  * I'm not planning on
  *
  */
+
+export function loadMore(infiniteState: InfiniteScrollingState) {
+  const { toDisplay, itemsShown, itemsNotShown, allItems } = infiniteState;
+  itemsShownWithNewData(toDisplay, itemsShown, itemsNotShown);
+  return { allItems, itemsShown, itemsNotShown };
+}
 
 /**
  * Returns the items that are going to be loaded in the DOM, the ones that
@@ -38,7 +43,7 @@ export function processApiResult(
   const totalItemsIndex = allItems.size + apiTotalItems;
 
   // These are the indexes that
-  itemsNotShown.push(...range(allItems.size, totalItemsIndex));
+  itemsNotShown.push(...range(allItems.size, totalItemsIndex - 1));
 
   // Add to all items.
   allItems = allItems.push(...apiResult.results);
@@ -56,6 +61,4 @@ function itemsShownWithNewData(
   for (let i = 0; i < Math.min(toDisplay, itemsNotShown.length); i++) {
     itemsShown.push(itemsNotShown.shift()!);
   }
-
-  return itemsShown;
 }

@@ -2,9 +2,7 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import BookCover from './book-cover';
-import { Button } from '../button';
-
-import { render } from 'react-dom';
+import Button from '../button';
 
 type CardProps = {
   title: string;
@@ -66,9 +64,7 @@ function Card({ liked = false, ...props }: CardProps) {
       </AuthorInfo>
       <RankNumber>#1</RankNumber>
       <CardFooter>
-        <a className="favorite" href="#">
-          ❤
-        </a>
+        <button>❤</button>
         <Button className="buy-now">Buy Now</Button>
       </CardFooter>
     </StyledCard>
