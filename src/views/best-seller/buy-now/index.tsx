@@ -42,10 +42,13 @@ const WhereToBuy = styled.div`
 
   a:visited,
   a {
-    padding: 0.2rem;
+    padding: 1rem;
     text-align: center;
     color: ${props => props.theme.main.textColor};
     text-decoration: none;
+  }
+  a:hover {
+    background-color: ${props => props.theme.terciary.color};
   }
   a > span {
     font-size: 3rem;

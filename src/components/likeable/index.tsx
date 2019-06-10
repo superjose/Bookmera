@@ -32,19 +32,39 @@ function Likeable({ isLiked = false, ...props }: LikeableProps) {
 
   useEffect(() => {
     async function SetStateFromDb() {
-      const likeable = await store.GetFromCacheOrDb(props.uniqueId);
-      if (likeable) {
-        setLiked(likeable.isLiked);
+      const likeable = (await store.GetFromCacheOrDb('likeable')) as Map<
+        string,
+        LikeableProps
+      >;
+      if (!!likeable) {
+        setLiked(likeable.get(props.uniqueId)!.isLiked!);
       }
     }
     SetStateFromDb();
   }, []);
 
-  function toggleLike() {
+  async function toggleLike() {
     const newLike = !liked;
     setLiked(newLike);
+
+    // Get the previous likes, since this overwrites everything.
+    const likeable = (await store.GetFromCacheOrDb('likeable')) as Map<
+      string,
+      LikeableProps
+    >;
+
+    if (!likeable) {
+      const map = new Map<string, LikeableProps>();
+      map.set(props.uniqueId, { ...props });
+      store.WriteInDb('likeable', map);
+      return;
+    }
+
+    // Update the map:
+    likeable.set(props.uniqueId, { ...props });
+
     //  If the key already exists then the old value is replaced with the new one.
-    store.WriteInDb(props.uniqueId, { isLiked: newLike, ...props });
+    store.WriteInDb('likeable', likeable);
   }
 
   return (
