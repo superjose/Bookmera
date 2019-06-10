@@ -9,6 +9,7 @@ import BuyNow from './buy-now';
 import { BuyNowProps } from './buy-now/index';
 import { findStoreUrl } from '../../api/utils';
 import { useApi } from '../../hooks/useApi';
+import { H1Padded } from '../../components/styles/h1Padded';
 
 /**
  * After the user clicks on a card, he'll be presented with the best seller
@@ -84,6 +85,7 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
           rank={bestSeller.rank}
           isLikeable={true}
           buttonLabel="View"
+          uniqueId={bestSeller.amazon_product_url}
         />
       );
     });
@@ -95,7 +97,11 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
   return (
     <React.Fragment>
       <BackArrow to="/" />
-
+      <H1Padded>
+        {!!props.listNameEncoded
+          ? props.listNameEncoded.replace(/-/g, ' ')
+          : ''}
+      </H1Padded>
       {modalState === ModalState.Opened && <BuyNow {...buyNowProps} />}
       <InfiniteScroll
         pageStart={0}

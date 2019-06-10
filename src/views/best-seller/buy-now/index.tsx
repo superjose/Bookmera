@@ -42,6 +42,8 @@ const WhereToBuy = styled.div`
 
   a:visited,
   a {
+    padding: 0.2rem;
+    text-align: center;
     color: ${props => props.theme.main.textColor};
     text-decoration: none;
   }

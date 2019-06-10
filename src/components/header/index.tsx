@@ -30,6 +30,12 @@ const Contents = styled.ul`
     padding-top: 1.3rem;
   }
 
+  @media (max-width: 40rem) {
+    .hideTextOnSmall {
+      display: none;
+    }
+  }
+
   li a,
   li a:visited,
   li:hover {
@@ -76,11 +82,13 @@ function Header(props: HeaderProps) {
         </Link>
         <li className="pull-right" onClick={setTheme}>
           <Contrast />
-          {currentTheme === CurrentTheme.Light ? (
-            <span>Light Theme On</span>
-          ) : (
-            <span>Dark Theme On</span>
-          )}
+          <span className="hideTextOnSmall">
+            {currentTheme === CurrentTheme.Light ? (
+              <span>Light Theme On</span>
+            ) : (
+              <span>Dark Theme On</span>
+            )}
+          </span>
         </li>
       </Contents>
     </Nav>

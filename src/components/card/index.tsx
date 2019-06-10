@@ -14,6 +14,7 @@ type CardProps = {
   onClick?(): void;
   isLikeable?: boolean;
   buttonLabel: string;
+  uniqueId: string;
 };
 
 const StyledCard = styled.div`
@@ -83,7 +84,14 @@ function Card({ liked = false, isLikeable = false, ...props }: CardProps) {
         <h3>{props.author}</h3>
       </AuthorInfo>
       <RankNumber>{props.rank}</RankNumber>
-      {isLikeable && <Likeable>❤</Likeable>}
+      {isLikeable && (
+        <Likeable
+          title={props.title}
+          author={props.author}
+          imgUrl={props.imgSrc}
+          uniqueId={props.uniqueId}
+        />
+      )}
       <CardFooter>
         <ButtonLink onClick={props.onClick}>See details</ButtonLink>
       </CardFooter>

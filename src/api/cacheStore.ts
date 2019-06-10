@@ -31,7 +31,18 @@ export class CacheStore {
       return false;
     }
   }
-  async GetFromCache(key: string) {
+
+  async WriteInDb(key: string, obj: Object) {
+    try {
+      await this.db.set(key, obj);
+      return true;
+    } catch (e) {
+      console.error('There was a problem while inserting the cache', e.message);
+      return false;
+    }
+  }
+
+  async GetFromCacheOrDb(key: string) {
     try {
       return await this.db.get(key);
     } catch (e) {

@@ -55,7 +55,7 @@ async function insertIntoCache(fetchQuery: string, data: NyTimesApi) {
 }
 
 async function loadFromCache(fetchQuery: string) {
-  const cache = await store.GetFromCache(fetchQuery);
+  const cache = await store.GetFromCacheOrDb(fetchQuery);
 
   if (!cache || cache.expiresIn.getTime() <= new Date()) {
     // Invalidate cache.

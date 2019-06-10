@@ -22,6 +22,7 @@ const Content = styled.div`
   color: ${props => props.theme.main.textColor};
   overflow-y: auto;
   width: 90%;
+  max-height: 80%;
   border-radius: ${props => props.theme.all.borderRadius};
   left: 50%;
   top: 50%;
@@ -35,6 +36,20 @@ const Content = styled.div`
     top: 1rem;
     font-size: 1.5rem;
     z-index: 2;
+  }
+
+  @media (max-width: 40rem) {
+    > .close-btn {
+      left: 87%;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 2rem;
+    }
+  }
+  @media (max-width: 25.625rem) {
+    > .close-btn {
+      color: white;
+    }
   }
 `;
 
