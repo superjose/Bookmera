@@ -34,6 +34,7 @@ const Content = styled.div`
     text-align: center;
     top: 1rem;
     font-size: 1.5rem;
+    z-index: 2;
   }
 `;
 
