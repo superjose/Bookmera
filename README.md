@@ -1,5 +1,7 @@
 # Bookmera
 
+<img src="./Cover.png">
+
 This is a NY Times current best-seller books that allows you to browse through the different categories and see which are the most renowned. The data is fetched realtime from the NY Times Books API. It has an "Infinite Scrolling" which loads only the items you are currently viewing, and in the background gets the next batch.
 
 You can also "like" 👍 the books, and purchase them by navigating to Amazon, Barnes and Noble or your local store from within the app.
