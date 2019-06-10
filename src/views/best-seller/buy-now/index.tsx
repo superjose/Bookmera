@@ -7,6 +7,8 @@ export type BuyNowProps = {
   barnesAndNobleUrl?: string;
   localStoreUrl?: string;
   bookCoverImgUrl: string;
+  title: string;
+  author: string;
   description: string;
   closeFn(): void;
 };
@@ -32,6 +34,22 @@ const RightPanel = styled.div`
   box-sizing: border-box;
 `;
 
+const WhereToBuy = styled.div`
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+
+  a:visited,
+  a {
+    color: ${props => props.theme.main.textColor};
+    text-decoration: none;
+  }
+  a > span {
+    font-size: 3rem;
+  }
+`;
+
 function BuyNow(props: BuyNowProps) {
   const {
     amazonUrl,
@@ -47,30 +65,37 @@ function BuyNow(props: BuyNowProps) {
           <BookCover src={bookCoverImgUrl} />
         </LeftPanel>
         <RightPanel>
-          <h1>Description</h1>
+          <h1>{props.title}</h1>
+          <h3>
+            <strong>By:&nbsp;</strong> {props.author}
+          </h3>
+          <h2>Description</h2>
           <p>{description}</p>
-          <h1>Where to buy</h1>
-          {localStoreUrl && (
-            <a href={localStoreUrl} rel="noopener noreferrer" target="_blank">
-              Local Store
-            </a>
-          )}
-          <br />
-          {barnesAndNobleUrl && (
-            <a
-              href={barnesAndNobleUrl}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Barnes and Nobel
-            </a>
-          )}
-          <br />
-          {amazonUrl && (
-            <a href={amazonUrl} rel="noopener noreferrer" target="_blank">
-              Amazon
-            </a>
-          )}
+          <h2>Where to buy</h2>
+          <WhereToBuy>
+            {amazonUrl && (
+              <a href={amazonUrl} rel="noopener noreferrer" target="_blank">
+                <span className="icon-amazon" /> <br />
+                Amazon
+              </a>
+            )}
+            {barnesAndNobleUrl && (
+              <a
+                href={barnesAndNobleUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span className="icon-library" /> <br />
+                Barnes and Nobel
+              </a>
+            )}
+            {localStoreUrl && (
+              <a href={localStoreUrl} rel="noopener noreferrer" target="_blank">
+                <span className="icon-books" /> <br />
+                Local Store
+              </a>
+            )}
+          </WhereToBuy>
         </RightPanel>
       </Wrapper>
     </Modal>
