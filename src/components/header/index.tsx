@@ -10,6 +10,7 @@ const Nav = styled.nav`
   width: 100%;
   top: 0;
   box-shadow: 2px 2px 10px -5px rgba(0, 0, 0, 0.45);
+  z-index: 2;
 `;
 
 const Contents = styled.ul`
@@ -24,6 +25,11 @@ const Contents = styled.ul`
     height: 100%;
     color: ${props => props.theme.main.textColor};
   }
+
+  .bookmera {
+    padding-top: 1.3rem;
+  }
+
   li a,
   li a:visited,
   li:hover {
@@ -33,7 +39,7 @@ const Contents = styled.ul`
     color: ${props => props.theme.main.textColor};
   }
   li:hover {
-    background-color: ${props => props.theme.secondary.color};
+    background-color: ${props => props.theme.terciary.color};
   }
   .pull-right {
     float: right;
@@ -64,7 +70,7 @@ function Header(props: HeaderProps) {
     <Nav>
       <Contents>
         <Link to="/">
-          <li>
+          <li className="bookmera">
             <BookIcon /> Bookmera
           </li>
         </Link>

@@ -7,10 +7,14 @@ export const lightTheme = {
   },
   main: {
     color: '#FAFAFA',
-    textColor: '#212121',
+    textColor: '#424242',
     bodyColor: '#FFF',
   },
   secondary: {
+    color: '#757575',
+    textColor: '#212121',
+  },
+  terciary: {
     color: '#E0E0E0',
   },
 };
@@ -26,6 +30,10 @@ export const darkTheme: Theme = {
   },
   secondary: {
     color: '#000',
+    textColor: '#F5F5F5',
+  },
+  terciary: {
+    color: '#424242',
   },
 };
 

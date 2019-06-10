@@ -9,3 +9,4 @@ export { default as BookCover } from './card/book-cover/';
 export { default as BackArrow } from './styles/backArrow';
 export { default as Contrast } from './styles/contrast';
 export { default as BookIcon } from './styles/bookicon';
+export { default as Likeable } from './likeable';
