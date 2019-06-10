@@ -47,7 +47,9 @@ function BuyNow(props: BuyNowProps) {
           <BookCover src={bookCoverImgUrl} />
         </LeftPanel>
         <RightPanel>
+          <h1>Description</h1>
           <p>{description}</p>
+          <h1>Where to buy</h1>
           {localStoreUrl && (
             <a href={localStoreUrl} rel="noopener noreferrer" target="_blank">
               Local Store

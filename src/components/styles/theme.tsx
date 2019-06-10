@@ -9,6 +9,7 @@ export const lightTheme = {
     color: '#FAFAFA',
     textColor: '#424242',
     bodyColor: '#FFF',
+    cardBackgroundColor: '#FFF',
   },
   secondary: {
     color: '#757575',
@@ -27,6 +28,7 @@ export const darkTheme: Theme = {
     color: '#212121',
     textColor: '#FAFAFA',
     bodyColor: '#424242',
+    cardBackgroundColor: 'rgba(33, 33, 33, 0.58)',
   },
   secondary: {
     color: '#000',

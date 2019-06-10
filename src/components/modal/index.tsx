@@ -1,9 +1,10 @@
 import React, { memo, useEffect } from 'react';
 import { styled } from '../styles/theme';
+import { ButtonLink } from '../styles/buttonLink';
 
 const Backdrop = styled.section`
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -17,7 +18,8 @@ const Backdrop = styled.section`
 const Content = styled.div`
   position: fixed;
   z-index: 2;
-  background-color: white;
+  background-color: ${props => props.theme.main.bodyColor};
+  color: ${props => props.theme.main.textColor};
   overflow-y: auto;
   width: 90%;
   border-radius: ${props => props.theme.all.borderRadius};
@@ -28,9 +30,10 @@ const Content = styled.div`
 
   > .close-btn {
     position: absolute;
-    right: 0;
+    right: 1rem;
     text-align: center;
-    top: 0;
+    top: 1rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -55,9 +58,9 @@ function Modal(props: ModalProps & React.HTMLProps<HTMLDivElement>) {
     <React.Fragment>
       <Backdrop onClick={props.closeFn} />
       <Content>
-        <button className="close-btn" onClick={props.closeFn}>
-          Close
-        </button>
+        <ButtonLink className="close-btn" onClick={props.closeFn}>
+          <span className="icon-cross" />
+        </ButtonLink>
         {props.children}
       </Content>
     </React.Fragment>

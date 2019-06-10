@@ -25,6 +25,7 @@ const StyledCard = styled.div`
   border-radius: 10px;
   overflow-x: hidden;
   transition: box-shadow 0.3s;
+  background-color: ${props => props.theme.main.cardBackgroundColor};
 
   &:hover {
     box-shadow: 2px 2px 20px -5px rgba(0, 0, 0, 0.45);
@@ -60,6 +61,7 @@ const RankNumber = styled.div`
   float: right;
   font-size: 2rem;
   font-weight: bold;
+  color: ${props => props.theme.main.textColor};
 `;
 
 const CardFooter = styled.div`
