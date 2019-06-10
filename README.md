@@ -11,21 +11,25 @@ No CSS framework was used in developing this application. Icons were grabbed fro
 # Features
 
 1. See the top current NY Times books, and purchase them directly from Amazon, Barnes and Noble or Locally (Later one doesn't always work).
-2. 24 hours query cache stored in IndexedDB (Can be accessed by a ServiceWorker);
-3. Has an infinite scrolling mechanism which loads books each 6 or 3 entries (Desktop, and mobile respectively).
-4. Uses CSS Grid to display an adaptive 3-to-1 column (Desktop to mobile respectively) layout which shows the images.
-5. You are able to switch between a light and a dark theme on the fly.
-6. Responsive design that targets any device screen.
-7. Modal pop up to see the best seller from the list, which responsively adapts itself according to the viewport.
-8. Tests for the infinite scrolling and loading.
-9. All user data is persisted locally.
+2. Has an infinite scrolling mechanism which loads books each 6 or 3 entries (Desktop, and mobile respectively).
+3. When you tap or click on a specified book, a modal shows up with the picture on the left. The picture becomes vertical when on mobile.
+4. 24 hours query cache stored in IndexedDB (Can be accessed by a ServiceWorker);
 
-# Notes - API Limitations.
+5. Uses CSS Grid to display an adaptive 3-to-1 column (Desktop to mobile respectively) layout which shows the images.
+6. You are able to switch between a light and a dark theme on the fly.
+7. Responsive design that targets any device screen.
+8. Modal pop up to see the best seller from the list, which responsively adapts itself according to the viewport.
+9. Tests for the infinite scrolling and loading.
+10. All user data is persisted locally.
+11. Uses React Hooks, Styled-Components (With Theming) and TypeScript.
+
+# Notes
 
 Currently the API has some limitations:
 
 1. There's barely any control on the items returned. The first API call returns all the items, while the subsequent ones are returned in pair of 20s.
-2. Images are one-size-fits-all, meaning that there's no way to optimize the images for smaller or bigger pixel density screens. They are currently served realtime.
+2. ## Images are one-size-fits-all, meaning that there's no way to optimize the images for smaller or bigger pixel density screens. They are currently served realtime.
+3. You can find an Adobe XD file with a previous design and several iterations in root.
 
 # Further enhancements
 
@@ -49,6 +53,8 @@ Due to time constraints the following features and optimizations weren't perform
 4. There are book covers that do not adapt itself to the card's size. This can be fixed by making it a background-image and applying the cover in the background-size.
 5. The bottom in dark mode still displays white.
 6. There's a FOUC (Flash of Unstyled Content) when transitioning from the main page to the best-seller page in dark mode. (This can be fixed by setting the upper parent as dark. It would probably need some app restructuring).
+7. The API key is hardcoded into the config file (config.ts). This needs to be moved to the environment variable (at least). This is bad practice as they shouldn't even be in the repo in the first place.
+8. There are cards that present invariable heights. This can be fixed with the same mechanism as #4 (Another advantage is that introduces parallelism even in HTTP/1.1)
 
 ## Available Scripts
 
