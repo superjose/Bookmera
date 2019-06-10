@@ -28,7 +28,7 @@ No CSS framework was used in developing this application. Icons were grabbed fro
 Currently the API has some limitations:
 
 1. There's barely any control on the items returned. The first API call returns all the items, while the subsequent ones are returned in pair of 20s.
-2. ## Images are one-size-fits-all, meaning that there's no way to optimize the images for smaller or bigger pixel density screens. They are currently served realtime.
+2. Images are one-size-fits-all, meaning that there's no way to optimize the images for smaller or bigger pixel density screens. They are currently served realtime.
 3. You can find an Adobe XD file with a previous design and several iterations in root.
 
 # Further enhancements
@@ -55,20 +55,24 @@ Due to time constraints the following features and optimizations weren't perform
 6. There's a FOUC (Flash of Unstyled Content) when transitioning from the main page to the best-seller page in dark mode. (This can be fixed by setting the upper parent as dark. It would probably need some app restructuring).
 7. The API key is hardcoded into the config file (config.ts). This needs to be moved to the environment variable (at least). This is bad practice as they shouldn't even be in the repo in the first place.
 8. There are cards that present invariable heights. This can be fixed with the same mechanism as #4 (Another advantage is that introduces parallelism even in HTTP/1.1)
+9. Edge <=15 doesn't support coloring emoji.It shows all the hearts in red.
 
-## Available Scripts
+## How to Run the project
 
-In the project directory, you can run:
+### To start, in the projet directory:
 
-### `npm start || yarn start`
+1. Copy .env.example and rename it to .env in the root.
+2. Add the NY Times API key
+3. run `npm start` or `yarn start`
 
-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test || yarn test`
+### To run unit tests, you can:
+
+1. Run `npm test` or `yarn test`
 
 Launches the test runner in the interactive watch mode.<br>
 Tests are located under [`src/__tests__`](src/__tests__)

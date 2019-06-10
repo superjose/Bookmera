@@ -3,7 +3,7 @@
 // and no public key was given, it's better to host a back-end server that serves as a proxy
 // between the final endpoint and the client.
 
-const apiKey = '8jdl9xoTgmGjPmngaytqI0HSwCZV3quc';
+const apiKey = process.env.REACT_APP_API;
 
 // Object.freeze protects it at the object level from any mutations.
 export const api = Object.freeze({
