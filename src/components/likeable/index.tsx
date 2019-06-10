@@ -37,7 +37,12 @@ function Likeable({ isLiked = false, ...props }: LikeableProps) {
         LikeableProps
       >;
       if (!!likeable) {
-        setLiked(likeable.get(props.uniqueId)!.isLiked!);
+        const likedStatus = likeable.get(props.uniqueId);
+        if (!likedStatus) {
+          return;
+        }
+        console.log(likeable.get(props.uniqueId), props.uniqueId);
+        setLiked(likedStatus.isLiked!);
       }
     }
     SetStateFromDb();
@@ -52,16 +57,20 @@ function Likeable({ isLiked = false, ...props }: LikeableProps) {
       string,
       LikeableProps
     >;
-
     if (!likeable) {
       const map = new Map<string, LikeableProps>();
-      map.set(props.uniqueId, { ...props });
+      map.set(props.uniqueId, { ...props, isLiked: newLike });
       store.WriteInDb('likeable', map);
       return;
     }
 
     // Update the map:
-    likeable.set(props.uniqueId, { ...props });
+
+    if (!newLike) {
+      likeable.delete(props.uniqueId);
+    } else {
+      likeable.set(props.uniqueId, { ...props, isLiked: newLike });
+    }
 
     //  If the key already exists then the old value is replaced with the new one.
     store.WriteInDb('likeable', likeable);
