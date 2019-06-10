@@ -3,7 +3,13 @@ import { styled } from '../../styles/theme';
 
 const BookCover = styled.img`
   border-radius: ${props => props.theme.all.borderRadius};
-  width: auto;
+  width: 100%;
+  /* max-width: 100%; */
+
+  @media (min-width: 40rem) {
+    width: auto;
+  }
+
   max-height: 500px;
   margin-bottom: 0.125em;
   cursor: pointer;

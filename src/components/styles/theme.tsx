@@ -11,7 +11,7 @@ export const lightTheme = {
     bodyColor: '#FFF',
   },
   secondary: {
-    color: '#757575',
+    color: '#E0E0E0',
   },
 };
 
@@ -25,7 +25,7 @@ export const darkTheme: Theme = {
     bodyColor: '#424242',
   },
   secondary: {
-    color: '#616161',
+    color: '#000',
   },
 };
 

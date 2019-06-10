@@ -11,6 +11,8 @@ type CardProps = {
   rank?: number;
   liked?: boolean;
   onClick?(): void;
+  isLikeable?: boolean;
+  buttonLabel: string;
 };
 
 const StyledCard = styled.div`
@@ -56,7 +58,7 @@ const CardFooter = styled.div`
   justify-content: space-around;
 `;
 
-function Card({ liked = false, ...props }: CardProps) {
+function Card({ liked = false, isLikeable = false, ...props }: CardProps) {
   return (
     <StyledCard>
       <BookCover className="cover" src={props.imgSrc} onClick={props.onClick} />
@@ -66,8 +68,8 @@ function Card({ liked = false, ...props }: CardProps) {
       </AuthorInfo>
       <RankNumber>{props.rank}</RankNumber>
       <CardFooter>
-        <button>❤</button>
-        <Button onClick={props.onClick}>View</Button>
+        {isLikeable && <button>❤</button>}
+        <Button onClick={props.onClick}>{props.buttonLabel}</Button>
       </CardFooter>
     </StyledCard>
   );

@@ -18,13 +18,13 @@ const Content = styled.div`
   position: fixed;
   z-index: 2;
   background-color: white;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 90%;
   border-radius: ${props => props.theme.all.borderRadius};
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 40rem;
+  max-width: 60rem;
 
   > .close-btn {
     position: absolute;

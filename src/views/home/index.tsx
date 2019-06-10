@@ -35,6 +35,7 @@ function Home(props: RouteComponentProps) {
           key={bestSeller!.list_name}
           title={bestSeller!.display_name}
           imgSrc={'https://s1.nyt.com/du/books/images/9780062861214.jpg'}
+          buttonLabel="View More"
         />
       );
     });

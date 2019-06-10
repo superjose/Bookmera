@@ -78,6 +78,8 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
           imgSrc={bestSeller.book_image}
           author={bestSeller.author}
           rank={bestSeller.rank}
+          isLikeable={true}
+          buttonLabel="View"
         />
       );
     });

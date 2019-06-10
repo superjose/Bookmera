@@ -8,8 +8,10 @@ const DecorateArrow = styled.span`
   margin-left: 1em;
   font-size: 2em;
   color: ${props => props.theme.main.textColor};
-  a {
+  a,
+  a:visited {
     text-decoration: none;
+    color: ${props => props.theme.main.textColor};
   }
 `;
 

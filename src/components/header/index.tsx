@@ -1,32 +1,43 @@
 import React, { memo, useState } from 'react';
-import styled, { ThemedStyledInterface } from 'styled-components';
+import styled from 'styled-components';
 import { Theme, lightTheme, darkTheme } from '../styles/theme';
 import { Link } from '@reach/router';
+import Contrast from '../styles/contrast';
+import BookIcon from '../styles/bookicon';
 
 const Nav = styled.nav`
   position: fixed;
   width: 100%;
   top: 0;
+  box-shadow: 2px 2px 10px -5px rgba(0, 0, 0, 0.45);
 `;
 
 const Contents = styled.ul`
   list-style-type: none;
+  height: 100%;
   margin: 0;
-  padding: 1rem;
   overflow: hidden;
   background-color: ${props => props.theme.main.color};
   li {
     float: left;
-    padding: 0 1em;
+    padding: 1rem;
+    height: 100%;
+    color: ${props => props.theme.main.textColor};
   }
-  li a {
+  li a,
+  li a:visited,
+  li:hover {
     display: block;
     text-align: center;
     text-decoration: none;
     color: ${props => props.theme.main.textColor};
   }
+  li:hover {
+    background-color: ${props => props.theme.secondary.color};
+  }
   .pull-right {
     float: right;
+    cursor: pointer;
   }
 `;
 
@@ -34,26 +45,36 @@ type HeaderProps = {
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 };
 
-function Header(props: HeaderProps) {
-  function setLightTheme() {
-    props.setTheme(lightTheme);
-  }
+enum CurrentTheme {
+  'Light',
+  'Dark',
+}
 
-  function setDarkTheme() {
-    props.setTheme(darkTheme);
+function Header(props: HeaderProps) {
+  const [currentTheme, setCurrentTheme] = useState(CurrentTheme.Light);
+
+  function setTheme() {
+    const isLightTheme = currentTheme === CurrentTheme.Light;
+    const otherTheme = isLightTheme ? CurrentTheme.Dark : CurrentTheme.Light;
+    setCurrentTheme(otherTheme);
+    props.setTheme(isLightTheme ? darkTheme : lightTheme);
   }
 
   return (
     <Nav>
       <Contents>
-        <li>
-          <Link to="/"> Bookmera </Link>
-        </li>
-        <li className="pull-right">
-          <button onClick={setLightTheme}>Light </button>
-        </li>
-        <li className="pull-right">
-          <button onClick={setDarkTheme}> Dark </button>
+        <Link to="/">
+          <li>
+            <BookIcon /> Bookmera
+          </li>
+        </Link>
+        <li className="pull-right" onClick={setTheme}>
+          <Contrast />
+          {currentTheme === CurrentTheme.Light ? (
+            <span>Light Theme On</span>
+          ) : (
+            <span>Dark Theme On</span>
+          )}
         </li>
       </Contents>
     </Nav>
