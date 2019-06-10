@@ -26,7 +26,7 @@ const Contents = styled.ul`
     color: ${props => props.theme.main.textColor};
   }
 
-  .bookmera {
+  .tab {
     padding-top: 1.3rem;
   }
 
@@ -76,9 +76,12 @@ function Header(props: HeaderProps) {
     <Nav>
       <Contents>
         <Link to="/">
-          <li className="bookmera">
+          <li className="tab">
             <BookIcon /> Bookmera
           </li>
+        </Link>
+        <Link to="/">
+          <li className="tab">Home</li>
         </Link>
         <li className="pull-right" onClick={setTheme}>
           <Contrast />

@@ -8,6 +8,8 @@ import { NyTimesNameResult } from '../../api/typings';
 import { List } from 'immutable';
 import { RouteComponentProps, navigate } from '@reach/router';
 import { useApi } from '../../hooks/useApi';
+import { H1Padded } from '../../components/styles/h1Padded';
+import { BottomReached } from '../../components/styles/BottomReached';
 
 function Home(props: RouteComponentProps) {
   const initialLoadConfig = {
@@ -46,13 +48,20 @@ function Home(props: RouteComponentProps) {
     <React.Fragment>
       {loading && <Loading />}
       {!loading && !loadConfig.errorMsg && (
-        <InfiniteScroll
-          pageStart={0}
-          hasMore={loadConfig.hasMore}
-          loadMore={fetchMore}
-        >
-          <Grid>{bestSellerCards}</Grid>
-        </InfiniteScroll>
+        <React.Fragment>
+          <br />
+          <H1Padded>Best Seller Categories</H1Padded>
+          <InfiniteScroll
+            pageStart={0}
+            hasMore={loadConfig.hasMore}
+            loadMore={fetchMore}
+          >
+            <Grid>{bestSellerCards}</Grid>
+            {!loadConfig.hasMore && (
+              <BottomReached>👋 You've reached the end ! </BottomReached>
+            )}
+          </InfiniteScroll>
+        </React.Fragment>
       )}
     </React.Fragment>
   );

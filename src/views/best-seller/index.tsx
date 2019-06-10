@@ -10,6 +10,7 @@ import { BuyNowProps } from './buy-now/index';
 import { findStoreUrl } from '../../api/utils';
 import { useApi } from '../../hooks/useApi';
 import { H1Padded } from '../../components/styles/h1Padded';
+import { BottomReached } from '../../components/styles/BottomReached';
 
 /**
  * After the user clicks on a card, he'll be presented with the best seller
@@ -109,6 +110,9 @@ function BestSeller(props: RouteComponentProps<BestSellerRouteProp>) {
         loadMore={fetchMore}
       >
         <Grid>{bestSellerCards}</Grid>
+        {!loadConfig.hasMore && (
+          <BottomReached>👋 You've reached the end ! </BottomReached>
+        )}
       </InfiniteScroll>
     </React.Fragment>
   );

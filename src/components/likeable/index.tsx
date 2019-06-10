@@ -41,7 +41,6 @@ function Likeable({ isLiked = false, ...props }: LikeableProps) {
         if (!likedStatus) {
           return;
         }
-        console.log(likeable.get(props.uniqueId), props.uniqueId);
         setLiked(likedStatus.isLiked!);
       }
     }
