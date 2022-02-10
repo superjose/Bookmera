@@ -10,7 +10,7 @@
     "@types/react-infinite-scroller": "^1.2.1",
     "idb-kv-store": "^4.4.0",
     "immutable": "^4.0.0-rc.12",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-infinite-scroller": "^1.2.4",
